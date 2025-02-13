@@ -9,11 +9,10 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play The journey of Merrick the goblin.</tw-noscript></noscript></tw-story>
-<tw-storydata name="The journey of Merrick the goblin" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="86A5D7D8-EA03-4571-B123-B8D2346F797B" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript">document.querySelector('body').style.background = 'green';
+<tw-storydata name="The journey of Merrick the goblin" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="86A5D7D8-EA03-4571-B123-B8D2346F797B" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript">document.querySelector('body').style.background = 'black';
 
-</script><tw-passagedata pid="1" name="Cavern" tags="" position="300,425" size="100,100">(set:$dagger to false)
-(set:$bow to false)
-(set:$projectiles to false)
+</script><tw-passagedata pid="1" name="Cavern" tags="" position="300,450" size="100,100">(set:$dagger to false)
+(set: $shortspear to false)
 (set:$rocks to false)
 (set:$waterbag to false)
 (set:$waterbagfilled to false)
@@ -36,20 +35,24 @@ Deeper into the cavern is a dark abyss that swallows all light, you can make out
 Where do you go from here?
 
 [[Outside cavern]]
-[[Deeper into the cavern]]</tw-passagedata><tw-passagedata pid="2" name="Deeper into the cavern" tags="" position="300,275" size="100,100">You enter deeper into the cavern via the narrowing hole in the wall, you look behind you to see the last light from the entrance smother the rocky wall.
+[[Deeper into the cavern]]</tw-passagedata><tw-passagedata pid="2" name="Deeper into the cavern" tags="" position="300,275" size="100,100">(set: $shortspear to true)
+
+Health: $health
+Coins: $coins
+
+You enter deeper into the cavern via the narrowing hole in the wall, you look behind you to see the last light from the entrance smother the rocky wall.
 
 As you pace ahead into the abyss, darkness envelops you on every side, and you can only feel your way forward using your hands on both sides of the narrow tunnel, you steadfast yourself and march onward.
 
-The sudden sight of an apparition ahead of you startles you, and you are frozen in place. 
+You freeze at the sight of a skeletal pile ahead of you, but as you look closer you see a shimmering glint of metal underneath the pile. You toss away some skeletal pieces to uncover the treasure, and you find a worthy shortspear that does 4 damage. 
 
-Terror strikes and you decide to run, but before you are able to, your legs are frozen cold by the embrace of cold dead hands, and your body tips forward, falling hard on the rocky cave floor.
+You look ahead into the darkness, and you hear a grunting noise which makes your spine shiver, and take one look behind you where faint light can be seen from where you came. Do you have second thoughts
 
-You try to grab something to hold onto, but find nothing else than half the skull of a skeleton, which immediately shatters in your flailing hands and you realize that you&#39;re doomed.
+[[No second thoughts]]
+[[Outside cavern]]
 
-Your legs are being pulled by the entity, and you feel weak.
-The pulling goes on until your body has disappeared from the face of the earth for an unknown fate, surely more horrifying than death.
 
-[[DEATH]]
+
 </tw-passagedata><tw-passagedata pid="3" name="Forest" tags="" position="700,175" size="100,100">Health: $health
 Coins: $coins
 
@@ -69,24 +72,26 @@ You realize these are not empty threats, but you believe there are several optio
 </tw-passagedata><tw-passagedata pid="4" name="DEATH" tags="" position="0,475" size="100,100">Death has given you no respite, and you have fallen.
 Despite your many shortcomings in this life, your afterlife awaits you
 
-[[Cavern]]</tw-passagedata><tw-passagedata pid="5" name="Outside cavern" tags="" position="475,425" size="100,100">Health: $health
+[[Cavern]]</tw-passagedata><tw-passagedata pid="5" name="Outside cavern" tags="" position="500,450" size="100,100">Health: $health
 Coins: $coins
 
-Outside the cavern you find yourself on a small precipice with a road snaking down into the edge of a forest about a football field away. 
+(if:visits &gt;= 1)[You are back outside the cavern, and ponder your options]
+(else:)[Outside the cavern you find yourself on a small precipice with a road snaking down into the edge of a forest some distance away.
 
-Behind you is the imposing face of a mountain, rising several hundred meters above you. You can not be sure how high the mountain is, but as you look around you realize its part of a chain of mountains surrounding this valley where you find yourself.
+Behind you is the imposing face of a mountain, part of a chain of mountains surrounding this valley where you find yourself.
 
-You hear birds in the distance of the forest, and you can see a lake some distance away between the thick trees. You see tracks and debris on the ground with clear marks from a pulled cart that leads into the forest.
+You hear birds in the distance of the forest, and there is a lake bordering it with a visible shack and jetty on its shore. 
 
-Far away from the other side of the lake you can barely see stacks of smoke, but you can&#39;t see it&#39;s origin as treetops blocks your view.
+You see tracks and debris on the ground with clear marks from a pulled cart along the road.
 
+You also spot some unusual rocks a few steps away on the precipice of the cliff, with rocks that looks perfect to throw.]
 
 (if:$rocks is false)[[Pick up a few rocks]]
 [[Forest]]
 [[Lake]]
-[[Investigation]]</tw-passagedata><tw-passagedata pid="6" name="Lake" tags="" position="725,575" size="100,100">(set:$health to $health+2)
+[[Investigate tracks]]</tw-passagedata><tw-passagedata pid="6" name="Lake" tags="" position="700,600" size="100,100">(set:$health to $health+2)
 
-Health: $health
+Health: $health +2
 Coins: $coins
 
 Your walk up to a stony beach of the lake and look into the clear water. The water looks clean and magnificent.
@@ -101,13 +106,13 @@ To another direction across the rolling plains you see smoke billowing from hove
 
 [[Way toward smokestacks]]
 [[Harbor]]
-</tw-passagedata><tw-passagedata pid="7" name="Investigation" tags="" position="700,375" size="100,100">(set:$dagger to true)
+</tw-passagedata><tw-passagedata pid="7" name="Investigate tracks" tags="" position="700,450" size="100,100">(set:$dagger to true)
 (set:$waterbag to true)
 (set:$health to $health+1)
 (set: $coins to $coins + 8)
 
-Health: $health
-Coins: $coins
+Health: $health +1
+Coins: $coins +8
 
 You decide to take a closer look at the tracks around you, the footmarks are considerably larger than your tiny goblin feet, and carry distinctive features. These are the footmarks on several orcs.
 
@@ -137,9 +142,9 @@ The fishergoblin raises his head to greet you - Welcome traveler, buy a fish? On
 (if:$coins &gt;= 1)[[Insult and haggle for a cheap fish]]
 [[Rob the fisherman]]
 [[Way toward smokestacks]]
-</tw-passagedata><tw-passagedata pid="9" name="Dig for maggots" tags="" position="1250,75" size="100,100">(set:$health to $health +2)
+</tw-passagedata><tw-passagedata pid="9" name="Dig for maggots" tags="" position="1250,25" size="100,100">(set:$health to $health +2)
 
-Health: $health
+Health: $health +2
 Coins: $coins
 
 The first thing that comes to your mind is to just dig down, where tasty maggots hide under a thin layer of earth. 
@@ -155,9 +160,9 @@ But none escape your gluttonous spree, your mouth now filled to the brim with sq
 After this particularly nutritious spree of gluttony you feel yourself becoming stronger.
 Beyond the trees you see a clearing.
 
-[[Clearing]]</tw-passagedata><tw-passagedata pid="10" name="Eat suspicious mushroom" tags="" position="1200,175" size="100,100">(set:$health to $health +2)
+[[Clearing]]</tw-passagedata><tw-passagedata pid="10" name="Eat suspicious mushroom" tags="" position="1200,150" size="100,100">(set:$health to $health +2)
 
-Health: $health
+Health: $health +2
 Coins: $coins
 
 Earlier you saw some mushrooms along the road albeit with a suspicious pattern of strong colors. 
@@ -171,7 +176,7 @@ You start to viciously press the puffy mushroom down your throat and leave it&#3
 
 Beyond the trees you see a clearing
 
-[[Clearing]]</tw-passagedata><tw-passagedata pid="11" name="Run fearlessly after the king of the woods" tags="" position="525,25" size="100,100">Health: $health
+[[Clearing]]</tw-passagedata><tw-passagedata pid="11" name="Run fearlessly after the king of the woods" tags="" position="225,0" size="100,100">Health: 0
 Coins: $coins
 
 You run after the bear until you come face to face with the bear. 
@@ -180,11 +185,11 @@ The bear takes one look at you, then takes one swipe which flings you hard to th
 
 Entrails spill out from your top and bottom halves, and the ravishing bear gulps down a piece that looks like your spleen. Although the scene is gruesome, the onset of death was actually quite peaceful for you.
 
-[[DEATH]]</tw-passagedata><tw-passagedata pid="12" name="Pick up a few rocks" tags="" position="450,225" size="100,100">(set:$rocks to true)
+[[DEATH]]</tw-passagedata><tw-passagedata pid="12" name="Pick up a few rocks" tags="" position="450,200" size="100,100">(set:$rocks to true)
 (set:$coins to $coins+3)
 
 Health: $health
-Coins: $coins
+Coins: $coins +3
 
 You pick up some rocks of aerodynamic shape of particular quality for throwing, and rub them in your goblin hands to get a feel for its density, and you feel yourself calm down.
 
@@ -194,29 +199,29 @@ You pick up a few coins, which probably fell off the hands of whoever robbed you
 
 You find throwing rocks and three coins
 
-[[Outside cavern]]</tw-passagedata><tw-passagedata pid="13" name="Hunt birds by throwing rocks" tags="" position="1150,275" size="100,100">(set:$health to $health +2)
+[[Outside cavern]]</tw-passagedata><tw-passagedata pid="13" name="Hunt birds by throwing rocks" tags="" position="1150,275" size="100,100">(set:$health to $health +3)
 
-Health: $health
+Health: $health +3
 Coins: $coins
 
 You track a particularly noisy bird laughing from the top of his lungs in the treetops.
 
-You find a good angle, and grin with a smirk before heaving back and forth stone in hand, until you let go of the stone and witness your most impressive throw.
+You find a good angle, and grin with a smirk before heaving back and forth with stone in hand, until you let go of the stone and witness your most impressive throw.
 
-Your throw is a perfect headshot and knocks the bird out cold, who fall lifelessly to the ground before you grab it by its neck.
+Your throw is a perfect headshot and knocks the bird out cold, who falls dead to the ground before you grab it by its neck.
 
 With gluttonous zeal you press the entirety of the bird down your immense goblin jaw, and your stomach immediately gets to work.
 
-You feel a pleasant tinge and a sense of power.
+You feel a pleasant tinge in your body and a regenerated sense of power.
 Beyond the treeline you notice a clearing.
 
 [[Clearing]]
 
 
 
-</tw-passagedata><tw-passagedata pid="14" name="Ignore the stomach and move on steadfastly" tags="" position="950,375" size="100,100">(set:$health to $health -1)
+</tw-passagedata><tw-passagedata pid="14" name="Ignore the stomach and move on steadfastly" tags="" position="900,350" size="100,100">(set:$health to $health -1)
 
-Health: $health
+Health: $health -1
 Coins: $coins
 
 Your stomach groans and wails, and you can bear it no longer.
@@ -230,15 +235,17 @@ You realize there is nothing else to do than sit down right here for a moment un
 A weakness overcomes you
 
 (if: $health &lt; 1)[[DEATH]]
-(if:$health &gt; 0)[[On the road again]]
+(if:$health &gt; 0)[[Lost in the forest]]
 
-</tw-passagedata><tw-passagedata pid="15" name="On the road again" tags="" position="1150,450" size="100,100">
+</tw-passagedata><tw-passagedata pid="15" name="Lost in the forest" tags="" position="1075,425" size="100,100">
 Health: $health
 Coins: $coins
 
-// TODO possible fatal encounter
+You keep walking in your hungering state, but your mind wanders because of your hunger. And you snap back to reality and realize you have lost sight of the road and can&#39;t find yourself back because your mind idled for too long.
 
-[[Clearing]]</tw-passagedata><tw-passagedata pid="16" name="Clearing" tags="" position="1350,300" size="100,100">
+The forest is dark, and you decide to simply walk one direction. You walk down an elevated slope and then behind a thick throng of obscuring trees, you can see clear water behind.
+
+[[Lake]]</tw-passagedata><tw-passagedata pid="16" name="Clearing" tags="" position="1350,300" size="100,100">
 Health: $health
 Coins: $coins
 
@@ -253,20 +260,28 @@ Coins: $coins
 // if health &lt;= 0 death
 
 // maybe a possibility to survive a failed fatal encounter if you have waterbagfilled or other
-[[Deaths door]]</tw-passagedata><tw-passagedata pid="18" name="You eat a fish" tags="" position="1000,775" size="100,100">(set: $coins to $coins -3)
+[[Deaths door]]</tw-passagedata><tw-passagedata pid="18" name="You eat a fish" tags="" position="1050,775" size="100,100">(set: $coins to $coins -2)
 (set: $health to $health +2)
 
-Health: $health
-Coins: $coins
+Health: $health +2
+Coins: $coins -2
 
-You give the goblin fisherman two coins and grab the biggest fish you can find and haul down your immense jaw, The goblin fisherman grimaces with disgust at the display, and you turn your face to the smokestacks in the distance.
+You give the goblin fisherman two coins and grab the biggest fish you can find and toss it between your teeth.
 
-[[Way toward smokestacks]]</tw-passagedata><tw-passagedata pid="19" name="Rob the fisherman" tags="" position="975,1125" size="100,100">Health: $health
-Coins: $coins
+With your gums mangling the piece of meat a squishy sound is made and some fishscales and liquids run over the sides of your mouth which doesn&#39;t trouble you at all, with a satisfying burp you swallow the rest and smile. 
+
+The goblin fisherman grimaces with disgust but is nonetheless happy to close a deal, and you turn your face to the smokestacks in the distance.
+
+[[Way toward smokestacks]]</tw-passagedata><tw-passagedata pid="19" name="Rob the fisherman" tags="" position="975,1125" size="100,100">
+
+
+(if: $dagger is true)[(set:$health to $health +2)(set: $coins to $coins +15)
+Health: $health +2
+Coins: $coins +15
 
 The fisherman probably has coins on him, and you decide to try your luck.
 
-(if: $dagger is true)[(set:$health to $health +2)(set: $coins to $coins +15)You take up your dagger in your right hand and say: Give me your money old man!
+You take up your dagger in your right hand and say: Give me your money old man!
 The fisherman takes a defensive posture and holds up his knife towards you. - Not without a fight you bandit!
 
 You struddle towards his flank and try a stab for his face, but he dodges by a quick downward kneel and makes a large swing with his knife upwards in your general direction.
@@ -274,6 +289,10 @@ You dodge the heavy swing by a quick backward lunge, but you recover quickly and
 
 You plunge the dagger again in his chest. The fisherman lay silent, you rob the fisherman of all he has on him, and toss a fish down your goblin maw. ]
 (else:)[(set:$health to $health-2)(set: $coins to 0)
+Health: $health -2
+Coins: 0
+
+The fisherman probably has coins on him, and you decide to try your luck.
 You are unarmed, but you have your fists.
 
 You quickly run up to the goblin and grab his jacket by both your fists and scream Die! The fisherman is pushed back by the momentum of your sudden move but cuts you in the arm with his trusty toolknife.
@@ -288,8 +307,8 @@ The fisherman slaps you across the face and kicks you in the stomach - Give me y
 </tw-passagedata><tw-passagedata pid="20" name="Insult and haggle for a cheap fish" tags="" position="1025,925" size="100,100">(set: $coins to $coins -1)
 (set: $health to $health -1)
 
-Health: $health
-Coins: $coins
+Health: $health -1
+Coins: $coins -1
 
 You utter 
 - You lousy bozo, is that your boat over there? That&#39;s the ugliest boat I&#39;ve seen, don&#39;t you have a cheaper stock fitting to your appearences?
@@ -308,7 +327,19 @@ You immediately feel sick to your stomach, and lay down on the ground clutching 
 
 A weakness overcomes you
 
-[[Way toward smokestacks]]</tw-passagedata><tw-passagedata pid="21" name="Deaths door" tags="" position="1000,1275" size="100,100">[[DEATH]]</tw-passagedata></tw-storydata>
+[[Way toward smokestacks]]</tw-passagedata><tw-passagedata pid="21" name="Deaths door" tags="" position="1000,1275" size="100,100">[[DEATH]]</tw-passagedata><tw-passagedata pid="22" name="No second thoughts" tags="" position="150,300" size="100,100">Health: 0
+Coins: $coins
+
+The sudden sight of an apparition ahead of you startles you, and you are frozen in place. 
+
+Terror strikes and you decide to run, but before you are able to, your legs are frozen cold by the embrace of cold dead hands, and your body tips forward, falling hard on the rocky cave floor.
+
+You try to grab something to hold onto, but find nothing else than half the skull of a skeleton, which immediately shatters in your flailing hands and you realize that you&#39;re doomed.
+
+Your legs are being pulled by the entity, and you feel weak.
+The pulling goes on until your body has disappeared from the face of the earth for an unknown fate, surely more horrifying than death.
+
+[[DEATH]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
