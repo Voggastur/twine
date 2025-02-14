@@ -56,6 +56,10 @@ You look ahead into the darkness, and you hear a grunting noise which makes your
 </tw-passagedata><tw-passagedata pid="3" name="Forest" tags="" position="700,175" size="100,100">Health: $health
 Coins: $coins
 
+&lt;img src=&#39;https://raw.githubusercontent.com/Voggastur/twine/refs/heads/main/images/gobbo_forest.png&#39;
+style=&#39;width:100%; height: 100%;&#39;
+/&gt;
+
 You follow the road into the forest, where arbour trees surround you on all sides.
 
 You move onward until you freeze at the sudden sight of a bear crossing the road. You stand still for a moment watching the bear, who carelessly hops forward and disappear into the forest without taking notice of you, or wasn&#39;t hungry.
@@ -75,7 +79,11 @@ Despite your many shortcomings in this life, your afterlife awaits you
 [[Cavern]]</tw-passagedata><tw-passagedata pid="5" name="Outside cavern" tags="" position="500,450" size="100,100">Health: $health
 Coins: $coins
 
-(if:visits &gt;= 1)[You are back outside the cavern, and ponder your options]
+&lt;img src=&#39;https://raw.githubusercontent.com/Voggastur/twine/refs/heads/main/images/gobbo_outside.webp&#39;
+style=&#39;width:100%; height: 100%;&#39;
+/&gt;
+
+(if:$rocks is true)[You are back outside the cavern, and ponder your options]
 (else:)[Outside the cavern you find yourself on a small precipice with a road snaking down into the edge of a forest some distance away.
 
 Behind you is the imposing face of a mountain, part of a chain of mountains surrounding this valley where you find yourself.
@@ -89,10 +97,13 @@ You also spot some unusual rocks a few steps away on the precipice of the cliff,
 (if:$rocks is false)[[Pick up a few rocks]]
 [[Forest]]
 [[Lake]]
-[[Investigate tracks]]</tw-passagedata><tw-passagedata pid="6" name="Lake" tags="" position="700,600" size="100,100">(set:$health to $health+2)
-
-Health: $health +2
+[[Investigate tracks]]</tw-passagedata><tw-passagedata pid="6" name="Lake" tags="" position="700,600" size="100,100">Health: $health +2
 Coins: $coins
+(set:$health to $health+2)
+
+&lt;img src=&#39;https://raw.githubusercontent.com/Voggastur/twine/refs/heads/main/images/gobbo_lake.png&#39;
+style=&#39;width:100%; height: 100%;&#39;
+/&gt;
 
 Your walk up to a stony beach of the lake and look into the clear water. The water looks clean and magnificent.
 
@@ -106,13 +117,13 @@ To another direction across the rolling plains you see smoke billowing from hove
 
 [[Way toward smokestacks]]
 [[Harbor]]
-</tw-passagedata><tw-passagedata pid="7" name="Investigate tracks" tags="" position="700,450" size="100,100">(set:$dagger to true)
+</tw-passagedata><tw-passagedata pid="7" name="Investigate tracks" tags="" position="700,450" size="100,100">Health: $health +1
+Coins: $coins +8
+
+(set:$dagger to true)
 (set:$waterbag to true)
 (set:$health to $health+1)
 (set: $coins to $coins + 8)
-
-Health: $health +1
-Coins: $coins +8
 
 You decide to take a closer look at the tracks around you, the footmarks are considerably larger than your tiny goblin feet, and carry distinctive features. These are the footmarks on several orcs.
 
@@ -133,6 +144,10 @@ You stick the dagger on the inside of your pants along with the empty waterbag.
 </tw-passagedata><tw-passagedata pid="8" name="Harbor" tags="" position="850,750" size="100,100">Health: $health
 Coins: $coins
 
+&lt;img src=&#39;https://raw.githubusercontent.com/Voggastur/twine/refs/heads/main/images/gobbo_fisherman.png&#39;
+style=&#39;width:100%; height: 100%;&#39;
+/&gt;
+
 As you walk along the edge of the lake and approach the harbor you notice grafitti on the towering barn that is part of the harbor, but none that makes sense to you, its all symbols and gibberish.
 
 As you come closer you find an older goblin fisherman standing near the docks, slicing up a haul of gutterfish wiith his knife.
@@ -142,10 +157,9 @@ The fishergoblin raises his head to greet you - Welcome traveler, buy a fish? On
 (if:$coins &gt;= 1)[[Insult and haggle for a cheap fish]]
 [[Rob the fisherman]]
 [[Way toward smokestacks]]
-</tw-passagedata><tw-passagedata pid="9" name="Dig for maggots" tags="" position="1250,25" size="100,100">(set:$health to $health +2)
-
-Health: $health +2
+</tw-passagedata><tw-passagedata pid="9" name="Dig for maggots" tags="" position="1250,25" size="100,100">Health: $health +2
 Coins: $coins
+(set:$health to $health +2)
 
 The first thing that comes to your mind is to just dig down, where tasty maggots hide under a thin layer of earth. 
 
@@ -160,10 +174,9 @@ But none escape your gluttonous spree, your mouth now filled to the brim with sq
 After this particularly nutritious spree of gluttony you feel yourself becoming stronger.
 Beyond the trees you see a clearing.
 
-[[Clearing]]</tw-passagedata><tw-passagedata pid="10" name="Eat suspicious mushroom" tags="" position="1200,150" size="100,100">(set:$health to $health +2)
-
-Health: $health +2
+[[Clearing]]</tw-passagedata><tw-passagedata pid="10" name="Eat suspicious mushroom" tags="" position="1200,150" size="100,100">Health: $health +2
 Coins: $coins
+(set:$health to $health +2)
 
 Earlier you saw some mushrooms along the road albeit with a suspicious pattern of strong colors. 
 
@@ -199,10 +212,9 @@ You pick up a few coins, which probably fell off the hands of whoever robbed you
 
 You find throwing rocks and three coins
 
-[[Outside cavern]]</tw-passagedata><tw-passagedata pid="13" name="Hunt birds by throwing rocks" tags="" position="1150,275" size="100,100">(set:$health to $health +3)
-
-Health: $health +3
+[[Outside cavern]]</tw-passagedata><tw-passagedata pid="13" name="Hunt birds by throwing rocks" tags="" position="1150,275" size="100,100">Health: $health +3
 Coins: $coins
+(set:$health to $health +3)
 
 You track a particularly noisy bird laughing from the top of his lungs in the treetops.
 
@@ -219,11 +231,10 @@ Beyond the treeline you notice a clearing.
 
 
 
-</tw-passagedata><tw-passagedata pid="14" name="Ignore the stomach and move on steadfastly" tags="" position="900,350" size="100,100">(set:$health to $health -1)
-
-Health: $health -1
+</tw-passagedata><tw-passagedata pid="14" name="Ignore the stomach and move on steadfastly" tags="" position="900,350" size="100,100">Health: $health -1
 Coins: $coins
 
+(set:$health to $health -1)
 Your stomach groans and wails, and you can bear it no longer.
 
 You decide to try decieve your stomach by eating the bark of the closest tree, along with some gravel stones that you think contains &quot;good fibres&quot;
@@ -237,13 +248,12 @@ A weakness overcomes you
 (if: $health &lt; 1)[[DEATH]]
 (if:$health &gt; 0)[[Lost in the forest]]
 
-</tw-passagedata><tw-passagedata pid="15" name="Lost in the forest" tags="" position="1075,425" size="100,100">
-Health: $health
+</tw-passagedata><tw-passagedata pid="15" name="Lost in the forest" tags="" position="1075,425" size="100,100">Health: $health
 Coins: $coins
 
-You keep walking in your hungering state, but your mind wanders because of your hunger. And you snap back to reality and realize you have lost sight of the road and can&#39;t find yourself back because your mind idled for too long.
+You keep walking in your hungering state, but your mind wanders. You start to feel cold and shudder, and you snap back to reality to realize you have lost sight of the road and can&#39;t find yourself back with your idled mind.
 
-The forest is dark, and you decide to simply walk one direction. You walk down an elevated slope and then behind a thick throng of obscuring trees, you can see clear water behind.
+The forest is dark, and you decide to simply walk in one direction. You walk down an elevated slope and then behind a thick throng of obscuring trees, you can see clear water behind.
 
 [[Lake]]</tw-passagedata><tw-passagedata pid="16" name="Clearing" tags="" position="1350,300" size="100,100">
 Health: $health
@@ -260,11 +270,10 @@ Coins: $coins
 // if health &lt;= 0 death
 
 // maybe a possibility to survive a failed fatal encounter if you have waterbagfilled or other
-[[Deaths door]]</tw-passagedata><tw-passagedata pid="18" name="You eat a fish" tags="" position="1050,775" size="100,100">(set: $coins to $coins -2)
-(set: $health to $health +2)
-
-Health: $health +2
+[[Deaths door]]</tw-passagedata><tw-passagedata pid="18" name="You eat a fish" tags="" position="1050,775" size="100,100">Health: $health +2
 Coins: $coins -2
+(set: $coins to $coins -2)
+(set: $health to $health +2)
 
 You give the goblin fisherman two coins and grab the biggest fish you can find and toss it between your teeth.
 
@@ -304,11 +313,10 @@ The fisherman slaps you across the face and kicks you in the stomach - Give me y
 (if:$health &lt;= 0)[[DEATH]]
 (else: )[[Way toward smokestacks]]
 
-</tw-passagedata><tw-passagedata pid="20" name="Insult and haggle for a cheap fish" tags="" position="1025,925" size="100,100">(set: $coins to $coins -1)
-(set: $health to $health -1)
-
-Health: $health -1
+</tw-passagedata><tw-passagedata pid="20" name="Insult and haggle for a cheap fish" tags="" position="1025,925" size="100,100">Health: $health -1
 Coins: $coins -1
+(set: $coins to $coins -1)
+(set: $health to $health -1)
 
 You utter 
 - You lousy bozo, is that your boat over there? That&#39;s the ugliest boat I&#39;ve seen, don&#39;t you have a cheaper stock fitting to your appearences?
