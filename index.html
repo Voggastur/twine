@@ -14,7 +14,6 @@
 </script><tw-passagedata pid="1" name="Cavern" tags="" position="300,450" size="100,100">(set:$dagger to false)
 (set: $shortspear to false)
 (set:$rocks to false)
-(set:$waterbag to false)
 (set:$waterbagfilled to false)
 (set:$health to 1)
 (set:$coins to 0)
@@ -107,9 +106,9 @@ style=&#39;width:100%; height: 100%;&#39;
 
 Your walk up to a stony beach of the lake and look into the clear water. The water looks clean and magnificent.
 
-(if: $waterbag is true)[You kneel near the edge of the waterlevel and fill up your waterbottle, you take a quick sip and fill the flask again, you feel recovered and now have a full flask of water](else:)[You kneel and scoop water in your hands to slurp down your throat, and you quench your thirst. You feel your health recover by each drop of water]
+You kneel near the edge of the waterlevel and fill up your waterbottle, you take a quick sip and fill the flask again, you feel recovered and now have a full flask of water
 
-(if: $waterbag is true)[(set:$waterbagfilled to true)]
+(set:$waterbagfilled to true)
 
 On the other side of the lake you can see what looks like a small harbor with a landing dock and one docked rickshackety boat, produced with a craftmanship you cannot endorse.
 
@@ -121,7 +120,7 @@ To another direction across the rolling plains you see smoke billowing from hove
 Coins: $coins +8
 
 (set:$dagger to true)
-(set:$waterbag to true)
+(set:$waterbagfilled to true)
 (set:$health to $health+1)
 (set: $coins to $coins + 8)
 
@@ -135,8 +134,10 @@ You also find an area of dead grass with some scattered debris lying around, and
 
 Quickly you decide to kick around other planks, rocks and debris in the hopes of finding other treasures, and you find some scattered coins as well.
 
-You tap the flask to your mouth and quench your thirst, and feel your body recover and your concussion lift.
-You stick the dagger on the inside of your pants along with the empty waterbag.
+Among the debris you find a torn scrap of parchment, half-burned. The script is jagged orcish but a few words leap out: GORM. cart. cleansing. The hand who wrote this knew what was coming and from whom. You stuff the parchment into your jerkin.
+
+You tap the new flask to your mouth and quench your thirst, and feel your body recover and your concussion lift. You unhook your own empty leather waterbag from your belt and let it drop into the dirt, looping the heavier full one onto your belt in its place.
+You stick the dagger on the inside of your pants.
 
 [[Lake]]
 [[Forest]]
@@ -153,9 +154,11 @@ As you walk along the edge of the lake and approach the harbor you notice grafit
 As you come closer you find an older goblin fisherman standing near the docks, slicing up a haul of gutterfish wiith his knife.
 The fishergoblin raises his head to greet you - Welcome traveler, buy a fish? Only 2 coins!
 
+He squints toward the smokestacks across the plains - Saw a band of orcs come down the road this morning, you know. Cart full of loot, sacks and a brass bell jangling. Heading up toward the village on the slope. Smoke been rising ever since.
+
 (if:$coins &gt;= 2)[[You eat a fish]]
 (if:$coins &gt;= 1)[[Insult and haggle for a cheap fish]]
-[[Rob the fisherman]]
+(if:$dagger is true)[[Rob the fisherman]]
 [[Way toward smokestacks]]
 </tw-passagedata><tw-passagedata pid="9" name="Dig for maggots" tags="" position="1250,25" size="100,100">Health: $health +2
 Coins: $coins
@@ -259,18 +262,44 @@ The forest is dark, and you decide to simply walk in one direction. You walk dow
 Health: $health
 Coins: $coins
 
-// TODO possible fatal encounter
+You emerge from the throng of arbour trees into a quiet glade where shafts of sunlight cut through the canopy and pool on a carpet of pale moss. Stones the size of skulls slouch around the edge, half-swallowed by lichen.
+
+Your gluttony from the woods sits heavy in your belly, and a satisfying gurgle rolls up your gullet. You belch with theatrical contentment and a small spore puffs from your nostrils.
+
+A thin brook trickles between two of the mossy stones, the water clear and cold-looking. You crouch beside it and dip a finger in to taste.
+
+(if: $waterbagfilled is false)[(set:$waterbagfilled to true)You unhook the empty waterbag from your belt and sink it under the surface. Bubbles burble out as the leather swells, and you cork it tight. The bag is filled again, a slack weight at your hip turned snug and useful.
+
+]You stretch your knobbly limbs on the warm stone for a moment, letting the forest noises fade. Somewhere far above the treetops a column of dark smoke rises past a distant ridge - the smokestacks, closer now.
+
+(set:$health to $health+1)
+Health restored to $health.
 
 [[Way toward smokestacks]]</tw-passagedata><tw-passagedata pid="17" name="Way toward smokestacks" tags="" position="1425,700" size="100,100">
 Health: $health
 Coins: $coins
 
-// todo next stop could be a bossfight so lets give an opportunity to heal up, npc encounter or hostily thug to spice things up
+You set off across the rolling plains toward the smokestacks. The road climbs gently. Crows wheel high above and there has been a passage of carts here recently, the ruts still fresh in the soft earth.
 
-// if health &lt;= 0 death
+After a while you come upon a figure crawling toward you on the road - a battered villager goblin with a hand pressed to a wound in his side. Blood has dried black on his jerkin. He sees you and stops, fearful, until he sees you are alone.
 
-// maybe a possibility to survive a failed fatal encounter if you have waterbagfilled or other
-[[Deaths door]]</tw-passagedata><tw-passagedata pid="18" name="You eat a fish" tags="" position="1050,775" size="100,100">Health: $health +2
+- Please. Please, traveler. Water. They burned everything.
+
+(if:$waterbagfilled is true)[(set: $waterbagfilled to false)(set: $coins to $coins + 5)You unhook the waterbag and place it in his shaking hands. He drinks all of it without breath, then collapses back on the road and presses a small pouch into your palm before his eyes close for the last time. Inside are five silver coins he died holding.
+
+- Burn them down, goblin. Burn them down for me.
+
+He no longer breathes.
+
+Coins: $coins]
+(else:)[You shrug your scrawny shoulders. You have nothing to give him. You step around him and walk on. The road is the road. He coughs once behind you and is silent.]
+
+You walk a long while afterward. The smoke grows thicker ahead. You start to smell what burns: thatch, animal fat, hair, bone.
+
+(if:$health &lt;= 0)[Your wounds catch up with you before the smokestacks do. You stumble off the road and lay down in the long grass. The crows wheel lower.
+
+[[DEATH]]]
+(else:)[[Smokestacks approach]]</tw-passagedata><tw-passagedata pid="18" name="You eat a fish" tags="" position="1050,775" size="100,100">Health: $health +2
 Coins: $coins -2
 (set: $coins to $coins -2)
 (set: $health to $health +2)
@@ -284,34 +313,51 @@ The goblin fisherman grimaces with disgust but is nonetheless happy to close a d
 [[Way toward smokestacks]]</tw-passagedata><tw-passagedata pid="19" name="Rob the fisherman" tags="" position="975,1125" size="100,100">
 
 
-(if: $dagger is true)[(set:$health to $health +2)(set: $coins to $coins +15)
-Health: $health +2
-Coins: $coins +15
+(set: $hadshortspear to $shortspear)
+(set: $threshold to 4)
+(if:$shortspear is true)[(set: $threshold to 2)]
+(else-if:$dagger is true)[(set: $threshold to 3)]
+(set: $roll to (random:1,6))
 
 The fisherman probably has coins on him, and you decide to try your luck.
 
-You take up your dagger in your right hand and say: Give me your money old man!
-The fisherman takes a defensive posture and holds up his knife towards you. - Not without a fight you bandit!
+(if:$shortspear is true)[You level your shortspear at his chest and snarl: Give me your money old man!]
+(else-if:$dagger is true)[You take up your dagger in your right hand and say: Give me your money old man!]
+(else:)[You ball your scrawny fists and shout: Give me your money old man!]
 
-You struddle towards his flank and try a stab for his face, but he dodges by a quick downward kneel and makes a large swing with his knife upwards in your general direction.
-You dodge the heavy swing by a quick backward lunge, but you recover quickly and lunge back again to plunge the dagger in the fishermans chest, the fisherman lies on his chest and with his dying breath utters -, you stupid mo..
+The fisherman drops his gutting knife and grabs a shortspear leaning against the dock railing, leveling its tip at you. - Not without a fight you bandit!
 
-You plunge the dagger again in his chest. The fisherman lay silent, you rob the fisherman of all he has on him, and toss a fish down your goblin maw. ]
+You circle each other on the slippery dock, both of you hissing through bared teeth. Fate rattles its dice in the lap of some uncaring god.
+
+The dice come up $roll, against a threshold of $threshold.
+
+(if: $roll &gt;= $threshold)[(set:$health to $health +2)(set: $coins to $coins +15)(set:$shortspear to true)
+Health: $health +2
+Coins: $coins +15
+(if:$hadshortspear is false)[Loot: shortspear]
+
+You struddle towards his flank and feint at his face. He kneels low and thrusts the shortspear upward, but you dodge by a quick backward lunge and recover with vicious speed.
+
+(if:$shortspear is true)[You drive your own shortspear deep into the fishermans chest.]
+(else-if:$dagger is true)[You plunge the dagger into the fishermans chest.]
+(else:)[Bare goblin hands clamp around his scrawny throat and squeeze with all your hate.]
+
+The fisherman sinks to the dock with his dying breath uttering -, you stupid mo..
+
+You strike again to be sure. He lay silent. (if:$hadshortspear is false)[You pry his shortspear from his hands. ]You rob him of his coin pouch, then toss a fish down your goblin maw.]
 (else:)[(set:$health to $health-2)(set: $coins to 0)
 Health: $health -2
 Coins: 0
 
-The fisherman probably has coins on him, and you decide to try your luck.
-You are unarmed, but you have your fists.
+You lunge at the old goblin but he sidesteps with surprising grace and jabs his shortspear into your arm. You straddle back, looking at the wound which is minor, and charge again. You crash into him biting at his arm, but the shortspears point grazes your chest.
 
-You quickly run up to the goblin and grab his jacket by both your fists and scream Die! The fisherman is pushed back by the momentum of your sudden move but cuts you in the arm with his trusty toolknife.
-You straddle back. You look at your arm, the wound is minor, and you decide to try attack again. You run up to the fisherman and lunge on top of him, in the process you bite his arm hard, but his other arm that holds knife cuts you in the chest.
-
-You roll to the side and say Enough, I surrender.
+You roll to the side and gasp Enough, I surrender.
 The fisherman slaps you across the face and kicks you in the stomach - Give me your coins and maybe I&#39;ll spare you! Then get out of here!]
 
-(if:$health &lt;= 0)[[DEATH]]
-(else: )[[Way toward smokestacks]]
+(if:$health &lt;= 0 and $waterbagfilled is true)[(set:$health to $health+2)(set:$waterbagfilled to false)As you lie crumpled, your trembling hand reflexively claws at the waterbag on your belt. You uncork it and gulp every drop, the cool water dulling the worst of your pain and steadying your legs. You drag yourself upright, the empty waterbag now slack at your side. Health restored to $health.
+[[Way toward smokestacks]]]
+(else-if:$health &lt;= 0)[[DEATH]]
+(else:)[[Way toward smokestacks]]
 
 </tw-passagedata><tw-passagedata pid="20" name="Insult and haggle for a cheap fish" tags="" position="1025,925" size="100,100">Health: $health -1
 Coins: $coins -1
@@ -335,7 +381,20 @@ You immediately feel sick to your stomach, and lay down on the ground clutching 
 
 A weakness overcomes you
 
-[[Way toward smokestacks]]</tw-passagedata><tw-passagedata pid="21" name="Deaths door" tags="" position="1000,1275" size="100,100">[[DEATH]]</tw-passagedata><tw-passagedata pid="22" name="No second thoughts" tags="" position="150,300" size="100,100">Health: 0
+[[Way toward smokestacks]]</tw-passagedata><tw-passagedata pid="21" name="Deaths door" tags="" position="1000,1275" size="100,100">Health: $health
+Coins: $coins
+
+The smokestacks loom black against a bruised sky, but your legs no longer obey. You stumble, and the road tilts sideways under your feet.
+
+A cold draft brushes the back of your neck, though no wind moves in the trees. You try to look behind you and find your head will not turn.
+
+Out of the corner of your eye, something tall and patient stands at the edge of the road, waiting. Or perhaps it has always been there.
+
+You think, with the last clear thought a goblin gets, that you would have liked one more worm. One more cockroach. One more swing of the gums. There is so much that is squishy in the world, and so little time.
+
+Beyond the smokestacks, something waits that no goblin has yet laid eyes on. But not today. Not for you.
+
+[[DEATH]]</tw-passagedata><tw-passagedata pid="22" name="No second thoughts" tags="" position="150,300" size="100,100">Health: 0
 Coins: $coins
 
 The sudden sight of an apparition ahead of you startles you, and you are frozen in place. 
@@ -347,7 +406,186 @@ You try to grab something to hold onto, but find nothing else than half the skul
 Your legs are being pulled by the entity, and you feel weak.
 The pulling goes on until your body has disappeared from the face of the earth for an unknown fate, surely more horrifying than death.
 
-[[DEATH]]</tw-passagedata></tw-storydata>
+[[DEATH]]</tw-passagedata><tw-passagedata pid="23" name="Smokestacks approach" tags="" position="1700,700" size="100,100">Health: $health
+Coins: $coins
+
+The road bends around a low ridge and the smokestacks reveal themselves for what they are: a village of mud-and-thatch hovels burning on the slope below. Black plumes pour into the sky. A wooden palisade ring stands half-collapsed where battering rams have done their work.
+
+Within the ring you make out figures - too tall to be goblins, too broad to be men. Orcs. A dozen at least, hauling sacks of grain, dragging livestock by the legs, kicking through doorways. A clay-jugged ale-keg has been wheeled into the muddy square and a knot of them gathers around it laughing.
+
+At the center, taller than the rest, stands a brute in stitched leather and bone fetishes. Even from here you recognize the brutal cut of his jaw and the way the others orbit him. The chieftain. Gorm the Splitter.
+
+Your tiny goblin heart pounds. Your friends. The donkey. The cart you cannot remember.
+
+You crouch behind a charred fencepost and consider. You have three ways forward.
+
+[[Scout from ridge]]
+[[Frontal charge]]
+[[Flank through burning houses]]</tw-passagedata><tw-passagedata pid="24" name="Scout from ridge" tags="" position="1900,500" size="100,100">Health: $health
+Coins: $coins
+
+You creep up the ridge on goblin-soft footpads and find a thorny bush that hides you from view. You peer over.
+
+From this vantage you count nine orcs in the ring, two more guarding what looks like the chieftains tent. Gorm himself sits on an upturned barrel sharpening a heavy cleaver.
+
+You see the donkey-bell. The little brass bell with the chipped lip that you remember tying around the neck of your traveling donkey. It hangs now from Gorms belt, jingling softly as he saws the whetstone.
+
+Worse - a sentry near the tent wears a familiar twisted iron amulet on a leather thong. Your friend who lay dead in the cavern made that amulet himself. He never took it off. Until he could not stop someone taking it off him.
+
+Cold fury settles in your guts. You measure the distance from your perch to the chieftains tent. With surprise on your side you could strike him before he ever sees you.
+
+[[Sneak strike on Gorm]]</tw-passagedata><tw-passagedata pid="25" name="Sneak strike on Gorm" tags="" position="2150,500" size="100,100">Health: $health
+Coins: $coins
+
+(set: $threshold to 4)
+(if:$shortspear is true)[(set: $threshold to 2)]
+(else-if:$dagger is true)[(set: $threshold to 3)]
+(set: $roll to (random:1,6))
+
+You slither down the slope on your belly, moving from shadow to shadow between charred fenceposts. The sentries are watching the gate, not the ridge above. You reach the back wall of the chieftains tent and slip beneath the canvas flap.
+
+Gorm sits with his back to you, still sharpening. His shoulders are wider than two goblins. You hold your breath.
+
+Fate rattles its dice. The roll comes up $roll, against a threshold of $threshold.
+
+(if: $roll &gt;= $threshold)[(set: $coins to $coins + 25)
+You cross the three steps between you in absolute silence. Gorm hears nothing until your weapon is already at the back of his thick neck.
+
+(if:$shortspear is true)[The shortspear punches clean through his throat from behind.]
+(else-if:$dagger is true)[The dagger slips between his vertebrae like a key turning in a lock.]
+(else:)[Bare goblin fingers find the soft spot beneath his ear, and you pull a chunk loose with your teeth before he can cry out.]
+
+Gorm crumples without a sound. The cleaver clatters to the dirt. You stand over him for one long moment and let the rage drain out of you.
+
+You take the donkey-bell from his belt and your friends amulet from the sentry who never noticed Gorm fall. You back out the way you came.
+
+[[Vengeance]]]
+(else:)[(set: $health to 0)
+The canvas rustles wrong as you slip in. Gorm turns faster than anything that big should turn. The cleaver is already in his hand.
+
+You see your own death in the swing of it. You feel the crack against your ribs and the wet, then the dark.
+
+[[Deaths door]]]</tw-passagedata><tw-passagedata pid="26" name="Frontal charge" tags="" position="1900,700" size="100,100">Health: $health
+Coins: $coins
+(set: $health to $health - 2)
+
+You stand up from behind the fencepost and walk down the road toward the gate as if you had every right to be there. The two gate-orcs look at you, look at each other, and burst out laughing.
+
+You wait until the closer one bends double with mirth before you move.
+
+(if:$rocks is true)[A throwing rock cracks across the laughing orcs temple and drops him in the mud.]
+(else-if:$shortspear is true)[You drive the shortspear up under his jaw before he straightens.]
+(else-if:$dagger is true)[The dagger slips between his ribs and he folds.]
+(else:)[You leap up and bite into his throat with all your goblin might. He gurgles down in shock.]
+
+The second orc roars and swings a club at you. It catches you across the side and the world flashes white.
+
+You roll, scramble, and bury your weapon or your teeth in his thigh. He staggers. You finish him on the ground.
+
+Two down. You are bleeding and the camp has heard the noise. Gorm steps out of his tent with the cleaver in his hand and a grin on his face.
+
+(if:$health &lt;= 0 and $waterbagfilled is true)[(set:$health to $health+2)(set:$waterbagfilled to false)
+The world swims around you. Your trembling hand finds the waterbag at your belt and you drain it down in one ragged gulp. The cold water steadies your legs and clears your vision. Health restored to $health.
+[[Open duel with Gorm]]]
+(else-if:$health &lt;= 0)[[DEATH]]
+(else:)[[Open duel with Gorm]]</tw-passagedata><tw-passagedata pid="27" name="Open duel with Gorm" tags="" position="2150,700" size="100,100">Health: $health
+Coins: $coins
+
+(set: $threshold to 4)
+(if:$shortspear is true)[(set: $threshold to 2)]
+(else-if:$dagger is true)[(set: $threshold to 3)]
+(set: $roll to (random:1,6))
+
+Gorm the Splitter walks toward you without hurry. His orcs make a ring and start to chant. The donkey-bell on his belt jingles with every step.
+
+He raises the cleaver and laughs - Little goblin came all this way to die!
+
+Fate rattles its dice. The roll comes up $roll, against a threshold of $threshold.
+
+(if: $roll &gt;= $threshold)[(set: $coins to $coins + 25)
+The cleaver comes down in a great arc. You duck under it and spring at his hip.
+
+(if:$shortspear is true)[The shortspear punches through the leather and into his belly. You twist.]
+(else-if:$dagger is true)[The dagger finds the gap below his ribs. You drive it deep.]
+(else:)[Your teeth find the inside of his thigh and a great gout of blood follows. You hang on.]
+
+Gorm bellows and tries to bring the cleaver around again but his strength is leaving him with the blood. He drops to one knee. You finish him without ceremony.
+
+The orcs in the ring fall silent. Then they look at each other and break and run, leaving sacks and stolen livestock behind.
+
+You take the donkey-bell from his belt. You walk to the corpse of the sentry by the tent and lift your friends amulet from his neck.
+
+[[Vengeance]]]
+(else:)[(set: $health to 0)
+The cleaver comes down faster than you can move. You feel the bite of it and then nothing else.
+
+[[Deaths door]]]</tw-passagedata><tw-passagedata pid="28" name="Flank through burning houses" tags="" position="1900,900" size="100,100">Health: $health
+Coins: $coins
+
+You skirt the ring of the palisade and approach the village from the smoke-side, where flames still lick the thatch of three hovels and the heat shimmers the air.
+
+(if:$waterbagfilled is true)[(set:$waterbagfilled to false)You unhook the waterbag and pour it over your jerkin and the rag you tie around your face. Soaked through, the cloth keeps the worst of the smoke and ember from your goblin lungs. You slip between the burning walls without coughing.]
+(else:)[(set: $health to $health - 3)You have nothing to ward off the smoke. You hold your breath and run. Embers sting your skin and a beam falls behind you, and by the time you stumble through to the other side your throat is raw and your eyes stream tears.]
+
+Through gaps in the smoke you see the chieftains loot pile - sacks of grain, a small cart of tools, the donkey-bell glinting on top. Gorm himself walks past it, distracted, counting plunder with one of his lieutenants.
+
+You crouch behind a smoking beam and wait for him to turn his back.
+
+(if:$health &lt;= 0)[[DEATH]]
+(else:)[[Ambush at loot pile]]</tw-passagedata><tw-passagedata pid="29" name="Ambush at loot pile" tags="" position="2150,900" size="100,100">Health: $health
+Coins: $coins
+
+(set: $threshold to 4)
+(if:$shortspear is true)[(set: $threshold to 2)]
+(else-if:$dagger is true)[(set: $threshold to 3)]
+(set: $roll to (random:1,6))
+
+Gorm turns his great back to you and bends to inspect a sack. The lieutenant has already wandered off.
+
+You break cover.
+
+Fate rattles its dice. The roll comes up $roll, against a threshold of $threshold.
+
+(if: $roll &gt;= $threshold)[(set: $coins to $coins + 25)
+Three goblin strides bring you within reach.
+
+(if:$shortspear is true)[The shortspear goes in at the base of his neck and up into the brain.]
+(else-if:$dagger is true)[The dagger slips between his shoulderblades and pierces the heart from behind.]
+(else-if:$rocks is true)[A rock cracks against the back of his skull and drops him face-down in the loot. You finish him with the heel of your boot.]
+(else:)[You leap onto his back and your teeth find the artery beneath his jaw before he can shake you off.]
+
+Gorm falls forward into his own stolen sacks. No one in the burning village notices for a long moment.
+
+You take the donkey-bell from his belt. You take your friends amulet from the loot pile where it has been thrown like a worthless trinket.
+
+[[Vengeance]]]
+(else:)[(set: $health to 0)
+A loose roof-tile crunches under your foot. Gorm turns. The cleaver is faster than you are.
+
+[[Deaths door]]]</tw-passagedata><tw-passagedata pid="30" name="Vengeance" tags="" position="2400,700" size="100,100">Health: $health
+Coins: $coins
+
+Gorm the Splitter is dead. The smoke drifts past you on a hot wind.
+
+The donkey-bell is in your left hand. Your friends amulet is in your right. The brass of the bell is cool and the iron of the amulet is warm where it touched a body all day. You weigh them, one in each palm.
+
+Somewhere a chicken clucks across a beam. The fires are burning lower now.
+
+You think about the donkey. You never even named the donkey. The donkey was very stupid and would eat anything and tried to eat your hat once. You think about your friend who made the amulet, who made jokes that weren&#39;t very funny and laughed loudest at them anyway. You think about the other one whose face is even now fading from you, and that is the worst of it.
+
+You tie the bell to your own belt where it hangs alongside your weapons. You loop the amulet around your scrawny neck.
+
+You leave the village by the quietest road you can find. Behind you the smoke keeps rising on its own, no help from you needed.
+
+The road goes on. The world is squishy and there is no end to it.
+
+[[The End]]</tw-passagedata><tw-passagedata pid="31" name="The End" tags="" position="2650,700" size="100,100">End of demo.
+
+Thank you for playing The Journey of Merrick the Goblin.
+
+More chapters to come. For now, the road waits.
+
+[[Cavern]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
