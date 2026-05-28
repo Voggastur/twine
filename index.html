@@ -11,15 +11,7 @@
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play The journey of Merrick the goblin.</tw-noscript></noscript></tw-story>
 <tw-storydata name="The journey of Merrick the goblin" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="86A5D7D8-EA03-4571-B123-B8D2346F797B" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript">document.querySelector('body').style.background = 'black';
 
-</script><tw-passagedata pid="1" name="Cavern" tags="" position="300,450" size="100,100">(set:$dagger to false)
-(set: $shortspear to false)
-(set:$rocks to false)
-(set:$waterbagfilled to false)
-(set:$health to 1)
-(set:$coins to 0)
-
-Health: $health
-Coins: $coins
+</script><tw-passagedata pid="1" name="Cavern" tags="" position="300,450" size="100,100">{(set:$dagger to false)(set: $shortspear to false)(set:$rocks to false)(set:$waterbagfilled to false)(set:$health to 1)(set:$coins to 0)(set:$prev_dagger to false)(set:$prev_shortspear to false)(set:$prev_rocks to false)(set:$prev_waterbagfilled to false)(set:$prev_health to 1)(set:$prev_coins to 0)}
 
 You find yourself lying on the cold floor of a cave, concussed, with a dry mouth and a heavy body.
 
@@ -36,9 +28,6 @@ Where do you go from here?
 [[Outside cavern]]
 [[Deeper into the cavern]]</tw-passagedata><tw-passagedata pid="2" name="Deeper into the cavern" tags="" position="300,275" size="100,100">(set: $shortspear to true)
 
-Health: $health
-Coins: $coins
-
 You enter deeper into the cavern via the narrowing hole in the wall, you look behind you to see the last light from the entrance smother the rocky wall.
 
 As you pace ahead into the abyss, darkness envelops you on every side, and you can only feel your way forward using your hands on both sides of the narrow tunnel, you steadfast yourself and march onward.
@@ -52,10 +41,7 @@ You look ahead into the darkness, and you hear a grunting noise which makes your
 
 
 
-</tw-passagedata><tw-passagedata pid="3" name="Forest" tags="" position="700,175" size="100,100">Health: $health
-Coins: $coins
-
-&lt;img src=&#39;https://raw.githubusercontent.com/Voggastur/twine/refs/heads/main/images/gobbo_forest.png&#39;
+</tw-passagedata><tw-passagedata pid="3" name="Forest" tags="" position="700,175" size="100,100">&lt;img src=&#39;https://raw.githubusercontent.com/Voggastur/twine/refs/heads/main/images/gobbo_forest.png&#39;
 style=&#39;width:100%; height: 100%;&#39;
 /&gt;
 
@@ -75,10 +61,7 @@ You realize these are not empty threats, but you believe there are several optio
 </tw-passagedata><tw-passagedata pid="4" name="DEATH" tags="" position="0,475" size="100,100">Death has given you no respite, and you have fallen.
 Despite your many shortcomings in this life, your afterlife awaits you
 
-[[Cavern]]</tw-passagedata><tw-passagedata pid="5" name="Outside cavern" tags="" position="500,450" size="100,100">Health: $health
-Coins: $coins
-
-&lt;img src=&#39;https://raw.githubusercontent.com/Voggastur/twine/refs/heads/main/images/gobbo_outside.webp&#39;
+[[Cavern]]</tw-passagedata><tw-passagedata pid="5" name="Outside cavern" tags="" position="500,450" size="100,100">&lt;img src=&#39;https://raw.githubusercontent.com/Voggastur/twine/refs/heads/main/images/gobbo_outside.webp&#39;
 style=&#39;width:100%; height: 100%;&#39;
 /&gt;
 
@@ -96,9 +79,7 @@ You also spot some unusual rocks a few steps away on the precipice of the cliff,
 (if:$rocks is false)[[Pick up a few rocks]]
 [[Forest]]
 [[Lake]]
-[[Investigate tracks]]</tw-passagedata><tw-passagedata pid="6" name="Lake" tags="" position="700,600" size="100,100">Health: $health +2
-Coins: $coins
-(set:$health to $health+2)
+[[Investigate tracks]]</tw-passagedata><tw-passagedata pid="6" name="Lake" tags="" position="700,600" size="100,100">(set:$health to $health+2)
 
 &lt;img src=&#39;https://raw.githubusercontent.com/Voggastur/twine/refs/heads/main/images/gobbo_lake.png&#39;
 style=&#39;width:100%; height: 100%;&#39;
@@ -116,13 +97,7 @@ To another direction across the rolling plains you see smoke billowing from hove
 
 [[Way toward smokestacks]]
 [[Harbor]]
-</tw-passagedata><tw-passagedata pid="7" name="Investigate tracks" tags="" position="700,450" size="100,100">Health: $health +1
-Coins: $coins +8
-
-(set:$dagger to true)
-(set:$waterbagfilled to true)
-(set:$health to $health+1)
-(set: $coins to $coins + 8)
+</tw-passagedata><tw-passagedata pid="7" name="Investigate tracks" tags="" position="700,450" size="100,100">{(set:$dagger to true)(set:$waterbagfilled to true)(set:$health to $health+1)(set: $coins to $coins + 8)}
 
 You decide to take a closer look at the tracks around you, the footmarks are considerably larger than your tiny goblin feet, and carry distinctive features. These are the footmarks on several orcs.
 
@@ -142,10 +117,7 @@ You stick the dagger on the inside of your pants.
 [[Lake]]
 [[Forest]]
 
-</tw-passagedata><tw-passagedata pid="8" name="Harbor" tags="" position="850,750" size="100,100">Health: $health
-Coins: $coins
-
-&lt;img src=&#39;https://raw.githubusercontent.com/Voggastur/twine/refs/heads/main/images/gobbo_fisherman.png&#39;
+</tw-passagedata><tw-passagedata pid="8" name="Harbor" tags="" position="850,750" size="100,100">&lt;img src=&#39;https://raw.githubusercontent.com/Voggastur/twine/refs/heads/main/images/gobbo_fisherman.png&#39;
 style=&#39;width:100%; height: 100%;&#39;
 /&gt;
 
@@ -160,9 +132,7 @@ He squints toward the smokestacks across the plains - Saw a band of orcs come do
 (if:$coins &gt;= 1)[[Insult and haggle for a cheap fish]]
 (if:$dagger is true)[[Rob the fisherman]]
 [[Way toward smokestacks]]
-</tw-passagedata><tw-passagedata pid="9" name="Dig for maggots" tags="" position="1250,25" size="100,100">Health: $health +2
-Coins: $coins
-(set:$health to $health +2)
+</tw-passagedata><tw-passagedata pid="9" name="Dig for maggots" tags="" position="1250,25" size="100,100">(set:$health to $health +2)
 
 The first thing that comes to your mind is to just dig down, where tasty maggots hide under a thin layer of earth. 
 
@@ -177,9 +147,7 @@ But none escape your gluttonous spree, your mouth now filled to the brim with sq
 After this particularly nutritious spree of gluttony you feel yourself becoming stronger.
 Beyond the trees you see a clearing.
 
-[[Clearing]]</tw-passagedata><tw-passagedata pid="10" name="Eat suspicious mushroom" tags="" position="1200,150" size="100,100">Health: $health +2
-Coins: $coins
-(set:$health to $health +2)
+[[Clearing]]</tw-passagedata><tw-passagedata pid="10" name="Eat suspicious mushroom" tags="" position="1200,150" size="100,100">(set:$health to $health +2)
 
 Earlier you saw some mushrooms along the road albeit with a suspicious pattern of strong colors. 
 
@@ -192,8 +160,7 @@ You start to viciously press the puffy mushroom down your throat and leave it&#3
 
 Beyond the trees you see a clearing
 
-[[Clearing]]</tw-passagedata><tw-passagedata pid="11" name="Run fearlessly after the king of the woods" tags="" position="225,0" size="100,100">Health: 0
-Coins: $coins
+[[Clearing]]</tw-passagedata><tw-passagedata pid="11" name="Run fearlessly after the king of the woods" tags="" position="225,0" size="100,100">(set: $health to 0)
 
 You run after the bear until you come face to face with the bear. 
 
@@ -201,11 +168,7 @@ The bear takes one look at you, then takes one swipe which flings you hard to th
 
 Entrails spill out from your top and bottom halves, and the ravishing bear gulps down a piece that looks like your spleen. Although the scene is gruesome, the onset of death was actually quite peaceful for you.
 
-[[DEATH]]</tw-passagedata><tw-passagedata pid="12" name="Pick up a few rocks" tags="" position="450,200" size="100,100">(set:$rocks to true)
-(set:$coins to $coins+3)
-
-Health: $health
-Coins: $coins +3
+[[DEATH]]</tw-passagedata><tw-passagedata pid="12" name="Pick up a few rocks" tags="" position="450,200" size="100,100">{(set:$rocks to true)(set:$coins to $coins+3)}
 
 You pick up some rocks of aerodynamic shape of particular quality for throwing, and rub them in your goblin hands to get a feel for its density, and you feel yourself calm down.
 
@@ -215,9 +178,7 @@ You pick up a few coins, which probably fell off the hands of whoever robbed you
 
 You find throwing rocks and three coins
 
-[[Outside cavern]]</tw-passagedata><tw-passagedata pid="13" name="Hunt birds by throwing rocks" tags="" position="1150,275" size="100,100">Health: $health +3
-Coins: $coins
-(set:$health to $health +3)
+[[Outside cavern]]</tw-passagedata><tw-passagedata pid="13" name="Hunt birds by throwing rocks" tags="" position="1150,275" size="100,100">(set:$health to $health +3)
 
 You track a particularly noisy bird laughing from the top of his lungs in the treetops.
 
@@ -234,10 +195,7 @@ Beyond the treeline you notice a clearing.
 
 
 
-</tw-passagedata><tw-passagedata pid="14" name="Ignore the stomach and move on steadfastly" tags="" position="900,350" size="100,100">Health: $health -1
-Coins: $coins
-
-(set:$health to $health -1)
+</tw-passagedata><tw-passagedata pid="14" name="Ignore the stomach and move on steadfastly" tags="" position="900,350" size="100,100">(set:$health to $health -1)
 Your stomach groans and wails, and you can bear it no longer.
 
 You decide to try decieve your stomach by eating the bark of the closest tree, along with some gravel stones that you think contains &quot;good fibres&quot;
@@ -251,18 +209,11 @@ A weakness overcomes you
 (if: $health &lt; 1)[[DEATH]]
 (if:$health &gt; 0)[[Lost in the forest]]
 
-</tw-passagedata><tw-passagedata pid="15" name="Lost in the forest" tags="" position="1075,425" size="100,100">Health: $health
-Coins: $coins
-
-You keep walking in your hungering state, but your mind wanders. You start to feel cold and shudder, and you snap back to reality to realize you have lost sight of the road and can&#39;t find yourself back with your idled mind.
+</tw-passagedata><tw-passagedata pid="15" name="Lost in the forest" tags="" position="1075,425" size="100,100">You keep walking in your hungering state, but your mind wanders. You start to feel cold and shudder, and you snap back to reality to realize you have lost sight of the road and can&#39;t find yourself back with your idled mind.
 
 The forest is dark, and you decide to simply walk in one direction. You walk down an elevated slope and then behind a thick throng of obscuring trees, you can see clear water behind.
 
-[[Lake]]</tw-passagedata><tw-passagedata pid="16" name="Clearing" tags="" position="1350,300" size="100,100">
-Health: $health
-Coins: $coins
-
-You emerge from the throng of arbour trees into a quiet glade where shafts of sunlight cut through the canopy and pool on a carpet of pale moss. Stones the size of skulls slouch around the edge, half-swallowed by lichen.
+[[Lake]]</tw-passagedata><tw-passagedata pid="16" name="Clearing" tags="" position="1350,300" size="100,100">You emerge from the throng of arbour trees into a quiet glade where shafts of sunlight cut through the canopy and pool on a carpet of pale moss. Stones the size of skulls slouch around the edge, half-swallowed by lichen.
 
 Your gluttony from the woods sits heavy in your belly, and a satisfying gurgle rolls up your gullet. You belch with theatrical contentment and a small spore puffs from your nostrils.
 
@@ -275,11 +226,7 @@ A thin brook trickles between two of the mossy stones, the water clear and cold-
 (set:$health to $health+1)
 Health restored to $health.
 
-[[Way toward smokestacks]]</tw-passagedata><tw-passagedata pid="17" name="Way toward smokestacks" tags="" position="1425,700" size="100,100">
-Health: $health
-Coins: $coins
-
-You set off across the rolling plains toward the smokestacks. The road climbs gently. Crows wheel high above and there has been a passage of carts here recently, the ruts still fresh in the soft earth.
+[[Way toward smokestacks]]</tw-passagedata><tw-passagedata pid="17" name="Way toward smokestacks" tags="" position="1425,700" size="100,100">You set off across the rolling plains toward the smokestacks. The road climbs gently. Crows wheel high above and there has been a passage of carts here recently, the ruts still fresh in the soft earth.
 
 After a while you come upon a figure crawling toward you on the road - a battered villager goblin with a hand pressed to a wound in his side. Blood has dried black on his jerkin. He sees you and stops, fearful, until he sees you are alone.
 
@@ -289,9 +236,7 @@ After a while you come upon a figure crawling toward you on the road - a battere
 
 - Burn them down, goblin. Burn them down for me.
 
-He no longer breathes.
-
-Coins: $coins]
+He no longer breathes.]
 (else:)[You shrug your scrawny shoulders. You have nothing to give him. You step around him and walk on. The road is the road. He coughs once behind you and is silent.]
 
 You walk a long while afterward. The smoke grows thicker ahead. You start to smell what burns: thatch, animal fat, hair, bone.
@@ -299,10 +244,7 @@ You walk a long while afterward. The smoke grows thicker ahead. You start to sme
 (if:$health &lt;= 0)[Your wounds catch up with you before the smokestacks do. You stumble off the road and lay down in the long grass. The crows wheel lower.
 
 [[DEATH]]]
-(else:)[[Smokestacks approach]]</tw-passagedata><tw-passagedata pid="18" name="You eat a fish" tags="" position="1050,775" size="100,100">Health: $health +2
-Coins: $coins -2
-(set: $coins to $coins -2)
-(set: $health to $health +2)
+(else:)[[Smokestacks approach]]</tw-passagedata><tw-passagedata pid="18" name="You eat a fish" tags="" position="1050,775" size="100,100">{(set: $coins to $coins -2)(set: $health to $health +2)}
 
 You give the goblin fisherman two coins and grab the biggest fish you can find and toss it between your teeth.
 
@@ -313,11 +255,7 @@ The goblin fisherman grimaces with disgust but is nonetheless happy to close a d
 [[Way toward smokestacks]]</tw-passagedata><tw-passagedata pid="19" name="Rob the fisherman" tags="" position="975,1125" size="100,100">
 
 
-(set: $hadshortspear to $shortspear)
-(set: $threshold to 4)
-(if:$shortspear is true)[(set: $threshold to 2)]
-(else-if:$dagger is true)[(set: $threshold to 3)]
-(set: $roll to (random:1,6))
+{(set: $hadshortspear to $shortspear)(set: $threshold to 4)(if:$shortspear is true)[(set: $threshold to 2)](else-if:$dagger is true)[(set: $threshold to 3)](set: $roll to (random:1,6))}
 
 The fisherman probably has coins on him, and you decide to try your luck.
 
@@ -332,8 +270,6 @@ You circle each other on the slippery dock, both of you hissing through bared te
 The dice come up $roll, against a threshold of $threshold.
 
 (if: $roll &gt;= $threshold)[(set:$health to $health +2)(set: $coins to $coins +15)(set:$shortspear to true)
-Health: $health +2
-Coins: $coins +15
 (if:$hadshortspear is false)[Loot: shortspear]
 
 You struddle towards his flank and feint at his face. He kneels low and thrusts the shortspear upward, but you dodge by a quick backward lunge and recover with vicious speed.
@@ -346,8 +282,6 @@ The fisherman sinks to the dock with his dying breath uttering -, you stupid mo.
 
 You strike again to be sure. He lay silent. (if:$hadshortspear is false)[You pry his shortspear from his hands. ]You rob him of his coin pouch, then toss a fish down your goblin maw.]
 (else:)[(set:$health to $health-2)(set: $coins to 0)
-Health: $health -2
-Coins: 0
 
 You lunge at the old goblin but he sidesteps with surprising grace and jabs his shortspear into your arm. You straddle back, looking at the wound which is minor, and charge again. You crash into him biting at his arm, but the shortspears point grazes your chest.
 
@@ -359,10 +293,7 @@ The fisherman slaps you across the face and kicks you in the stomach - Give me y
 (else-if:$health &lt;= 0)[[DEATH]]
 (else:)[[Way toward smokestacks]]
 
-</tw-passagedata><tw-passagedata pid="20" name="Insult and haggle for a cheap fish" tags="" position="1025,925" size="100,100">Health: $health -1
-Coins: $coins -1
-(set: $coins to $coins -1)
-(set: $health to $health -1)
+</tw-passagedata><tw-passagedata pid="20" name="Insult and haggle for a cheap fish" tags="" position="1025,925" size="100,100">{(set: $coins to $coins -1)(set: $health to $health -1)}
 
 You utter 
 - You lousy bozo, is that your boat over there? That&#39;s the ugliest boat I&#39;ve seen, don&#39;t you have a cheaper stock fitting to your appearences?
@@ -381,10 +312,7 @@ You immediately feel sick to your stomach, and lay down on the ground clutching 
 
 A weakness overcomes you
 
-[[Way toward smokestacks]]</tw-passagedata><tw-passagedata pid="21" name="Deaths door" tags="" position="1000,1275" size="100,100">Health: $health
-Coins: $coins
-
-The smokestacks loom black against a bruised sky, but your legs no longer obey. You stumble, and the road tilts sideways under your feet.
+[[Way toward smokestacks]]</tw-passagedata><tw-passagedata pid="21" name="Deaths door" tags="" position="1000,1275" size="100,100">The smokestacks loom black against a bruised sky, but your legs no longer obey. You stumble, and the road tilts sideways under your feet.
 
 A cold draft brushes the back of your neck, though no wind moves in the trees. You try to look behind you and find your head will not turn.
 
@@ -394,8 +322,7 @@ You think, with the last clear thought a goblin gets, that you would have liked 
 
 Beyond the smokestacks, something waits that no goblin has yet laid eyes on. But not today. Not for you.
 
-[[DEATH]]</tw-passagedata><tw-passagedata pid="22" name="No second thoughts" tags="" position="150,300" size="100,100">Health: 0
-Coins: $coins
+[[DEATH]]</tw-passagedata><tw-passagedata pid="22" name="No second thoughts" tags="" position="150,300" size="100,100">(set: $health to 0)
 
 The sudden sight of an apparition ahead of you startles you, and you are frozen in place. 
 
@@ -406,10 +333,7 @@ You try to grab something to hold onto, but find nothing else than half the skul
 Your legs are being pulled by the entity, and you feel weak.
 The pulling goes on until your body has disappeared from the face of the earth for an unknown fate, surely more horrifying than death.
 
-[[DEATH]]</tw-passagedata><tw-passagedata pid="23" name="Smokestacks approach" tags="" position="1700,700" size="100,100">Health: $health
-Coins: $coins
-
-The road bends around a low ridge and the smokestacks reveal themselves for what they are: a village of mud-and-thatch hovels burning on the slope below. Black plumes pour into the sky. A wooden palisade ring stands half-collapsed where battering rams have done their work.
+[[DEATH]]</tw-passagedata><tw-passagedata pid="23" name="Smokestacks approach" tags="" position="1700,700" size="100,100">The road bends around a low ridge and the smokestacks reveal themselves for what they are: a village of mud-and-thatch hovels burning on the slope below. Black plumes pour into the sky. A wooden palisade ring stands half-collapsed where battering rams have done their work.
 
 Within the ring you make out figures - too tall to be goblins, too broad to be men. Orcs. A dozen at least, hauling sacks of grain, dragging livestock by the legs, kicking through doorways. A clay-jugged ale-keg has been wheeled into the muddy square and a knot of them gathers around it laughing.
 
@@ -421,10 +345,7 @@ You crouch behind a charred fencepost and consider. You have three ways forward.
 
 [[Scout from ridge]]
 [[Frontal charge]]
-[[Flank through burning houses]]</tw-passagedata><tw-passagedata pid="24" name="Scout from ridge" tags="" position="1900,500" size="100,100">Health: $health
-Coins: $coins
-
-You creep up the ridge on goblin-soft footpads and find a thorny bush that hides you from view. You peer over.
+[[Flank through burning houses]]</tw-passagedata><tw-passagedata pid="24" name="Scout from ridge" tags="" position="1900,500" size="100,100">You creep up the ridge on goblin-soft footpads and find a thorny bush that hides you from view. You peer over.
 
 From this vantage you count nine orcs in the ring, two more guarding what looks like the chieftains tent. Gorm himself sits on an upturned barrel sharpening a heavy cleaver.
 
@@ -434,13 +355,7 @@ Worse - a sentry near the tent wears a familiar twisted iron amulet on a leather
 
 Cold fury settles in your guts. You measure the distance from your perch to the chieftains tent. With surprise on your side you could strike him before he ever sees you.
 
-[[Sneak strike on Gorm]]</tw-passagedata><tw-passagedata pid="25" name="Sneak strike on Gorm" tags="" position="2150,500" size="100,100">Health: $health
-Coins: $coins
-
-(set: $threshold to 4)
-(if:$shortspear is true)[(set: $threshold to 2)]
-(else-if:$dagger is true)[(set: $threshold to 3)]
-(set: $roll to (random:1,6))
+[[Sneak strike on Gorm]]</tw-passagedata><tw-passagedata pid="25" name="Sneak strike on Gorm" tags="" position="2150,500" size="100,100">{(set: $threshold to 4)(if:$shortspear is true)[(set: $threshold to 2)](else-if:$dagger is true)[(set: $threshold to 3)](set: $roll to (random:1,6))}
 
 You slither down the slope on your belly, moving from shadow to shadow between charred fenceposts. The sentries are watching the gate, not the ridge above. You reach the back wall of the chieftains tent and slip beneath the canvas flap.
 
@@ -465,9 +380,7 @@ The canvas rustles wrong as you slip in. Gorm turns faster than anything that bi
 
 You see your own death in the swing of it. You feel the crack against your ribs and the wet, then the dark.
 
-[[Deaths door]]]</tw-passagedata><tw-passagedata pid="26" name="Frontal charge" tags="" position="1900,700" size="100,100">Health: $health
-Coins: $coins
-(set: $health to $health - 2)
+[[Deaths door]]]</tw-passagedata><tw-passagedata pid="26" name="Frontal charge" tags="" position="1900,700" size="100,100">(set: $health to $health - 2)
 
 You stand up from behind the fencepost and walk down the road toward the gate as if you had every right to be there. The two gate-orcs look at you, look at each other, and burst out laughing.
 
@@ -488,13 +401,7 @@ Two down. You are bleeding and the camp has heard the noise. Gorm steps out of h
 The world swims around you. Your trembling hand finds the waterbag at your belt and you drain it down in one ragged gulp. The cold water steadies your legs and clears your vision. Health restored to $health.
 [[Open duel with Gorm]]]
 (else-if:$health &lt;= 0)[[DEATH]]
-(else:)[[Open duel with Gorm]]</tw-passagedata><tw-passagedata pid="27" name="Open duel with Gorm" tags="" position="2150,700" size="100,100">Health: $health
-Coins: $coins
-
-(set: $threshold to 4)
-(if:$shortspear is true)[(set: $threshold to 2)]
-(else-if:$dagger is true)[(set: $threshold to 3)]
-(set: $roll to (random:1,6))
+(else:)[[Open duel with Gorm]]</tw-passagedata><tw-passagedata pid="27" name="Open duel with Gorm" tags="" position="2150,700" size="100,100">{(set: $threshold to 4)(if:$shortspear is true)[(set: $threshold to 2)](else-if:$dagger is true)[(set: $threshold to 3)](set: $roll to (random:1,6))}
 
 Gorm the Splitter walks toward you without hurry. His orcs make a ring and start to chant. The donkey-bell on his belt jingles with every step.
 
@@ -519,10 +426,7 @@ You take the donkey-bell from his belt. You walk to the corpse of the sentry by 
 (else:)[(set: $health to 0)
 The cleaver comes down faster than you can move. You feel the bite of it and then nothing else.
 
-[[Deaths door]]]</tw-passagedata><tw-passagedata pid="28" name="Flank through burning houses" tags="" position="1900,900" size="100,100">Health: $health
-Coins: $coins
-
-You skirt the ring of the palisade and approach the village from the smoke-side, where flames still lick the thatch of three hovels and the heat shimmers the air.
+[[Deaths door]]]</tw-passagedata><tw-passagedata pid="28" name="Flank through burning houses" tags="" position="1900,900" size="100,100">You skirt the ring of the palisade and approach the village from the smoke-side, where flames still lick the thatch of three hovels and the heat shimmers the air.
 
 (if:$waterbagfilled is true)[(set:$waterbagfilled to false)You unhook the waterbag and pour it over your jerkin and the rag you tie around your face. Soaked through, the cloth keeps the worst of the smoke and ember from your goblin lungs. You slip between the burning walls without coughing.]
 (else:)[(set: $health to $health - 3)You have nothing to ward off the smoke. You hold your breath and run. Embers sting your skin and a beam falls behind you, and by the time you stumble through to the other side your throat is raw and your eyes stream tears.]
@@ -531,14 +435,8 @@ Through gaps in the smoke you see the chieftains loot pile - sacks of grain, a s
 
 You crouch behind a smoking beam and wait for him to turn his back.
 
-(if:$health &lt;= 0)[[DEATH]]
-(else:)[[Ambush at loot pile]]</tw-passagedata><tw-passagedata pid="29" name="Ambush at loot pile" tags="" position="2150,900" size="100,100">Health: $health
-Coins: $coins
-
-(set: $threshold to 4)
-(if:$shortspear is true)[(set: $threshold to 2)]
-(else-if:$dagger is true)[(set: $threshold to 3)]
-(set: $roll to (random:1,6))
+(if:$health &lt;= 0)[(link-goto: "DEATH")]
+(else:)[(link-goto: "Ambush at loot pile")]</tw-passagedata><tw-passagedata pid="29" name="Ambush at loot pile" tags="" position="2150,900" size="100,100">{(set: $threshold to 4)(if:$shortspear is true)[(set: $threshold to 2)](else-if:$dagger is true)[(set: $threshold to 3)](set: $roll to (random:1,6))}
 
 Gorm turns his great back to you and bends to inspect a sack. The lieutenant has already wandered off.
 
@@ -562,10 +460,7 @@ You take the donkey-bell from his belt. You take your friends amulet from the lo
 (else:)[(set: $health to 0)
 A loose roof-tile crunches under your foot. Gorm turns. The cleaver is faster than you are.
 
-[[Deaths door]]]</tw-passagedata><tw-passagedata pid="30" name="Vengeance" tags="" position="2400,700" size="100,100">Health: $health
-Coins: $coins
-
-Gorm the Splitter is dead. The smoke drifts past you on a hot wind.
+[[Deaths door]]]</tw-passagedata><tw-passagedata pid="30" name="Vengeance" tags="" position="2400,700" size="100,100">Gorm the Splitter is dead. The smoke drifts past you on a hot wind.
 
 The donkey-bell is in your left hand. Your friends amulet is in your right. The brass of the bell is cool and the iron of the amulet is warm where it touched a body all day. You weigh them, one in each palm.
 
@@ -585,7 +480,15 @@ Thank you for playing The Journey of Merrick the Goblin.
 
 More chapters to come. For now, the road waits.
 
-[[Cavern]]</tw-passagedata></tw-storydata>
+[[Cavern]]</tw-passagedata><tw-passagedata pid="32" name="Header" tags="header" position="0,0" size="100,100">|inventory&gt;[]
+</tw-passagedata><tw-passagedata pid="33" name="Footer" tags="footer" position="0,100" size="100,100">(replace: ?inventory)[(border:"solid")+(text-colour:"yellow")[**Backpack** — Health: $health(if: $health &gt; $prev_health)[ (text-colour:"lime")[+(print: $health - $prev_health)]](else-if: $health &lt; $prev_health)[ (text-colour:"red")[(print: $health - $prev_health)]] · Coins: $coins(if: $coins &gt; $prev_coins)[ (text-colour:"lime")[+(print: $coins - $prev_coins)]](else-if: $coins &lt; $prev_coins)[ (text-colour:"red")[(print: $coins - $prev_coins)]](if: $dagger is true or $shortspear is true or $waterbagfilled is true or $rocks is true)[
+Items:(if: $dagger is true)[ Dagger(if: $prev_dagger is false)[ (text-colour:"lime")[gained]]](if: $shortspear is true)[ Shortspear(if: $prev_shortspear is false)[ (text-colour:"lime")[gained]]](if: $waterbagfilled is true)[ Waterbag(if: $prev_waterbagfilled is false)[ (text-colour:"lime")[filled]]](if: $rocks is true)[ Rocks(if: $prev_rocks is false)[ (text-colour:"lime")[gained]]]]]]
+(set: $prev_health to $health)
+(set: $prev_coins to $coins)
+(set: $prev_dagger to $dagger)
+(set: $prev_shortspear to $shortspear)
+(set: $prev_waterbagfilled to $waterbagfilled)
+(set: $prev_rocks to $rocks)</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
