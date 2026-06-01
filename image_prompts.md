@@ -35,7 +35,7 @@ Digital painting, painterly fantasy illustration matching the style of gobbo_for
 Scene: Merrick concussed on cold cave floor, dawn light spilling in from cavern entrance to the right. Foreground: dead donkey with sliced flank, two slain goblin comrades with gut wounds. Background left: dark inner tunnel with a skull chiseled above its opening. Mood: dazed grief, dread.
 ```
 
-- [ ] done
+- [x] done
 
 ---
 
@@ -49,7 +49,7 @@ Digital painting, painterly fantasy illustration matching the style of gobbo_for
 Scene: narrow rock passage in deep cavern, faint warm light receding behind, cold blue darkness ahead. Skeletal pile in foreground with a shortspear half-buried, glint of metal catching what little light remains. Merrick peering from one side. Mood: claustrophobic dread.
 ```
 
-- [ ] done
+- [x] done
 
 ---
 
@@ -63,7 +63,7 @@ Digital painting, painterly fantasy illustration matching the style of gobbo_for
 Scene: Merrick frozen in dark cavern as skeletal cold dead hands grasp his legs from below the rocky floor. His body tipping forward, hands flailing for purchase, finding only a half-skull that shatters. Mood: supernatural horror.
 ```
 
-- [ ] done
+- [x] done
 
 ---
 
@@ -77,7 +77,7 @@ Digital painting, painterly fantasy illustration matching the style of gobbo_for
 Scene: abstract, Merrick falling into deep darkness. Cold hands or skeletal silhouettes pulling him down from below. Bleak, void-like. Mood: terminal, ominous.
 ```
 
-- [ ] done
+- [x] done
 
 ---
 
@@ -93,7 +93,7 @@ Digital painting, painterly fantasy illustration matching the style of gobbo_for
 Scene: abandoned orc campfire among bushes, scattered pig bones and rib remains, broken cart planks splintered across dead grass. A dagger and a full leather waterbag lying under a broken plank. Half-burned parchment scrap visible at edge. Merrick crouching in the wreckage examining a footprint. Mood: forensic dread, the morning after violence.
 ```
 
-- [ ] done
+- [x] done
 
 ---
 
