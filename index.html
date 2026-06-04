@@ -11,7 +11,7 @@
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play The journey of Merrick the goblin.</tw-noscript></noscript></tw-story>
 <tw-storydata name="The journey of Merrick the goblin" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="86A5D7D8-EA03-4571-B123-B8D2346F797B" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript">document.querySelector('body').style.background = 'black';
 
-</script><tw-passagedata pid="1" name="Cavern" tags="" position="300,450" size="100,100">{(set:$dagger to false)(set: $shortspear to false)(set:$rocks to false)(set:$waterbagfilled to false)(set:$health to 1)(set:$coins to 0)(set:$comeback to "Open duel with Gorm")(set:$prev_dagger to false)(set:$prev_shortspear to false)(set:$prev_rocks to false)(set:$prev_waterbagfilled to false)(set:$prev_health to 1)(set:$prev_coins to 0)}
+</script><tw-passagedata pid="1" name="Cavern" tags="" position="300,450" size="100,100">{(set:$dagger to false)(set: $shortspear to false)(set:$rocks to false)(set:$waterbagfilled to false)(set:$health to 1)(set:$coins to 0)(set:$comeback to "Open duel with Gorm")(set:$investigated to false)(set:$metpeddler to false)(set:$prev_dagger to false)(set:$prev_shortspear to false)(set:$prev_rocks to false)(set:$prev_waterbagfilled to false)(set:$prev_health to 1)(set:$prev_coins to 0)}
 
 &lt;img src=&#39;images/gobbo_cavern.jpg&#39;
 style=&#39;width:100%; height: 100%;&#39;
@@ -91,7 +91,7 @@ You also spot some unusual rocks a few steps away on the precipice of the cliff,
 (if:$rocks is false)[[Pick up a few rocks]]
 [[Forest]]
 [[Lake]]
-(unless: (history:) contains "Investigate tracks")[[Investigate tracks]]</tw-passagedata><tw-passagedata pid="6" name="Lake" tags="" position="700,600" size="100,100">(set:$health to $health+2)
+(if:$investigated is false)[[Investigate tracks]]</tw-passagedata><tw-passagedata pid="6" name="Lake" tags="" position="700,600" size="100,100">(set:$health to $health+2)
 
 &lt;img src=&#39;images/gobbo_lake.png&#39;
 style=&#39;width:100%; height: 100%;&#39;
@@ -109,7 +109,7 @@ To another direction across the rolling plains you see smoke billowing from hove
 
 [[Way toward smokestacks]]
 [[Harbor]]
-</tw-passagedata><tw-passagedata pid="7" name="Investigate tracks" tags="" position="700,450" size="100,100">{(set:$dagger to true)(set:$waterbagfilled to true)(set:$health to $health+1)(set: $coins to $coins + 8)}
+</tw-passagedata><tw-passagedata pid="7" name="Investigate tracks" tags="" position="700,450" size="100,100">{(set:$dagger to true)(set:$waterbagfilled to true)(set:$health to $health+1)(set: $coins to $coins + 8)(set:$investigated to true)}
 
 &lt;img src=&#39;images/gobbo_investigateoutside.jpg&#39;
 style=&#39;width:100%; height: 100%;&#39;
@@ -314,7 +314,7 @@ He squints toward the smokestacks across the plains - Saw a band of orcs come do
 
     [[DEATH]]]
     (else:)[[A peddler on the road]]]
-</tw-passagedata><tw-passagedata pid="34" name="A peddler on the road" tags="" position="1575,575" size="100,100">(if: visits is 1)[The road bends sharply around a hawthorn hedge and you nearly walk straight into the flank of a mule. A two-wheeled cart stands tucked in the shade, piled with sacks, crates and a rolled-up market awning. A wiry old goblin perches on the shaft, and at the sight of you he throws up both hands - friend! Friend, not orc. Put your teeth away.
+</tw-passagedata><tw-passagedata pid="34" name="A peddler on the road" tags="" position="1575,575" size="100,100">(if: $metpeddler is false)[(set:$metpeddler to true)The road bends sharply around a hawthorn hedge and you nearly walk straight into the flank of a mule. A two-wheeled cart stands tucked in the shade, piled with sacks, crates and a rolled-up market awning. A wiry old goblin perches on the shaft, and at the sight of you he throws up both hands - friend! Friend, not orc. Put your teeth away.
 
 He looks you over and eases back down. - You came out of the smoke. So did I, near enough. I kept a stall on the far end of town, the orchard end. When Gorms lot came howling in from the east I had my goods half-packed already, lucky for me, and the mule still in her traces. I slipped out the back of the rows while they were busy with the front, through the orchard, and never once looked behind me.
 
