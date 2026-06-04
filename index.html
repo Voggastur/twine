@@ -145,7 +145,7 @@ He squints toward the smokestacks across the plains - Saw a band of orcs come do
 
 (if:$coins &gt;= 2)[[You eat a fish]]
 (if:$coins &gt;= 1)[[Insult and haggle for a cheap fish]]
-(if:$dagger is true)[[Rob the fisherman]]
+(if:$dagger is true or $shortspear is true)[[Rob the fisherman]]
 [[Way toward smokestacks]]
 </tw-passagedata><tw-passagedata pid="9" name="Dig for maggots" tags="" position="1250,25" size="100,100">
     &lt;img src=&#39;images/gobbo_eatmaggots.jfif&#39;
@@ -189,15 +189,36 @@ He squints toward the smokestacks across the plains - Saw a band of orcs come do
     &lt;img src=&#39;images/gobbo_bear.jfif&#39;
     style=&#39;width:100%; height: 100%;&#39;
     /&gt;
-    (set: $health to 0)
+    {(set: $threshold to 5)(if:$shortspear is true)[(set: $threshold to 3)](else-if:$dagger is true or $rocks is true)[(set: $threshold to 4)](set: $roll to (random:1,6))}
 
-    You run after the bear until you come face to face with the bear.
+    You run after the bear until you come face to face with it. It rises onto its hind legs, vast and shaggy, and the forest falls silent. This is the king of the woods, and you are a snack with delusions.
 
+    Fate rattles its dice. The roll comes up $roll, against a threshold of $threshold.
+
+    (if: $roll &gt;= $threshold)[There is no killing this thing - but a goblin does not need to win, only to keep from being eaten.
+
+    (if:$shortspear is true)[The bear lunges. You drop under the swipe and ram your shortspear clean through the meat of its paw. It rears back roaring, the spear torn from your grip and flapping from its flesh.]
+    (else-if:$dagger is true)[The bear lunges. You roll beneath the swipe and bury your dagger to the hilt in the pad of its paw. It rears back roaring and shakes the little blade loose into the leaves.]
+    (else-if:$rocks is true)[The bear lunges. You sidestep the paw and whip a throwing rock square between its eyes. It rears back with a startled bawl, shaking its great head.]
+    (else:)[The bear lunges. You twist away from paw after paw, quick as only a desperate goblin can be, and sink your teeth into its paw until it bawls in surprise.]
+
+    The king of the woods looks down at you - this loud, scrappy, entirely-too-much-trouble morsel - and decides you are not worth the bother. With a wounded huff and a backward glance heavy with bruised pride, it turns and lumbers off in search of easier prey.
+
+    The tussle has dragged you into an unfamiliar stretch of the forest, and as your heart slows you see what the bear had been feeding on. The macabre torso of an orc lies splayed open in the leaf-litter, ribcage bared and picked clean, plainly an earlier victim of the same beast.
+
+    (set: $coins to $coins + 4)(if:$shortspear is false)[(set:$shortspear to true)A shortspear lies in the dirt near his outflung hand. You snatch it up and heft it - a real weapon at last.
+    ](else:)[A shortspear lies in the dirt near his outflung hand. Your own is still lodged in the bears paw, wandering off into the woods, so you snatch this one up to take its place.
+    ]Four coins still hang by loose threads from the rotten scraps of clothing clinging to his bones. You work them free of the ribcage.
+
+    You are alone in the forest now, blood up and your belly still empty.
+
+    [[Lost in the forest]]]
+    (else:)[(set: $health to 0)
     The bear takes one look at you, then takes one swipe which flings you hard to the ground and knocks you unconscious, then viciously takes a bite into your abdomen which because of your thin stature leads to your body being split in half.
 
     Entrails spill out from your top and bottom halves, and the ravishing bear gulps down a piece that looks like your spleen. Although the scene is gruesome, the onset of death was actually quite peaceful for you.
 
-    [[DEATH]]
+    [[DEATH]]]
 </tw-passagedata><tw-passagedata pid="12" name="Pick up a few rocks" tags="" position="450,200" size="100,100">
     &lt;img src=&#39;images/gobbo_pickstones.jfif&#39;
     style=&#39;width:100%; height: 100%;&#39;
@@ -284,7 +305,46 @@ He squints toward the smokestacks across the plains - Saw a band of orcs come do
     (set:$health to $health+1)
     Health restored to $health.
 
-    [[Way toward smokestacks]]
+    [[A lone orc]]
+</tw-passagedata><tw-passagedata pid="35" name="A lone orc" tags="" position="1350,150" size="100,100">
+    &lt;img src=&#39;images/gobbo_orc.jpg&#39;
+    style=&#39;width:100%; height: 100%;&#39;
+    /&gt;
+
+    You leave the glade and pick your way toward the rising smoke. Before the trees thin out you stop dead - there is an orc ahead, alone, down in a hollow beneath a fallen tree.
+
+    He is no warrior on watch, only a straggler: a forager from Gorms band, ransacking through a dead mans pack and stuffing roots and stolen trinkets in his pockets. 
+    His shortspear leans against a stump, well out of his reach. He has not heard you.
+
+    Your fingers itch. There is loot to be made - but a fight is a fight, and you are one small goblin.
+
+    [[Ambush the orc->Fight the lone orc]]
+    [[Slip past him through the trees->Way toward smokestacks]]
+</tw-passagedata><tw-passagedata pid="36" name="Fight the lone orc" tags="" position="1600,150" size="100,100">
+    &lt;img src=&#39;images/gobbo_orcfight.jpg&#39;
+    style=&#39;width:100%; height: 100%;&#39;
+    /&gt;
+    {(set: $threshold to 4)(if:$shortspear is true)[(set: $threshold to 2)](else-if:$dagger is true or $rocks is true)[(set: $threshold to 3)](set: $roll to (random:1,6))}
+
+    You creep to the lip of the hollow and spring before he can reach his spear.
+
+    Fate rattles its dice. The roll comes up $roll, against a threshold of $threshold.
+
+    (if: $roll &gt;= $threshold)[(set: $coins to $coins + 6)(set: $health to $health + 2)
+    (if:$shortspear is true)[Your shortspear takes him under the arm before he can rise, and you bear down until he stops moving.]
+    (else-if:$dagger is true)[Your dagger finds his kidney and you ride him to the ground, stabbing repeatedly until he is still.]
+    (else-if:$rocks is true)[A rock cracks into his temple and drops him, and you finish the dazed orc with a second blow.]
+    (else:)[You land on his back and your teeth find his throat before his hands find yours. You both fall to the ground and roll in the leaves and dirt, but you do not lose your grip. it is ugly, but it is over.]
+
+    The orc lies dead. You ransack his sack and the dead villagers pack - a fistful of coins and a strip of dried meat that you bolt down your maw on the spot.
+    (if:$shortspear is false)[(set:$shortspear to true)
+    You pry his shortspear from the stump too - heavier than it looks, and far better than nothing.]
+
+    [[Way toward smokestacks]]]
+    (else:)[(set: $health to 0)(set:$comeback to "Way toward smokestacks")
+    He hears the leaves shift and turns at the last instant. The sack drops and his fist catches you mid-leap, slamming you into the dirt. A boot finds your ribs, then another, and the world goes white and wet and far away.
+
+    [[Deaths door]]]
 </tw-passagedata><tw-passagedata pid="17" name="Way toward smokestacks" tags="" position="1425,700" size="100,100">
     &lt;img src=&#39;images/towards_smokestacks.jfif&#39;
     style=&#39;width:100%; height: 100%;&#39;
@@ -302,37 +362,45 @@ He squints toward the smokestacks across the plains - Saw a band of orcs come do
 
     - Burn them down, goblin. Burn them down for me.
 
-    He no longer breathes.](show:?after)]
-    (link:"Keep your water and step around him")[(replace:?choice)[You tighten your grip on the waterbag. He is too weak to stop you. You step around him and walk on without looking back. Behind you he coughs once, calls out something that might be a curse or a prayer, and then is silent.](show:?after)]]]
+    He no longer breathes.
+
+    (display: "The road onward")]]
+    (link:"Keep your water and step around him")[(replace:?choice)[You tighten your grip on the waterbag. He is too weak to stop you. You step around him and walk on without looking back. Behind you he coughs once, calls out something that might be a curse or a prayer, and then is silent.
+
+    (display: "The road onward")]]]]
     (else:)[You shrug your scrawny shoulders. You have nothing to give him. You step around him and walk on. The road is the road. He coughs once behind you and is silent.
 
-    (show:?after)]
+    (display: "The road onward")]
+</tw-passagedata><tw-passagedata pid="37" name="The road onward" tags="" position="1425,550" size="100,100">You walk a long while afterward. The smoke grows thicker ahead. You start to smell what burns: thatch, animal fat, hair, bone.
 
-    (hidden:)|after>[You walk a long while afterward. The smoke grows thicker ahead. You start to smell what burns: thatch, animal fat, hair, bone.
+(if:$health &lt;= 0)[Your wounds catch up with you before the smokestacks do. You stumble off the road and lay down in the long grass. The crows wheel lower.
 
-    (if:$health &lt;= 0)[Your wounds catch up with you before the smokestacks do. You stumble off the road and lay down in the long grass. The crows wheel lower.
+[[DEATH]]]
+(else:)[[A peddler on the road]]</tw-passagedata><tw-passagedata pid="34" name="A peddler on the road" tags="" position="1575,575" size="100,100">&lt;img src=&#39;images/gobbo_peddler.jpg&#39;
+style=&#39;width:100%; height: 100%;&#39;
+/&gt;
 
-    [[DEATH]]]
-    (else:)[[A peddler on the road]]]
-</tw-passagedata><tw-passagedata pid="34" name="A peddler on the road" tags="" position="1575,575" size="100,100">(if: $metpeddler is false)[(set:$metpeddler to true)The road bends sharply around a hawthorn hedge and you nearly walk straight into the flank of a mule. A two-wheeled cart stands tucked in the shade, piled with sacks, crates and a rolled-up market awning. A wiry old goblin perches on the shaft, and at the sight of you he throws up both hands - friend! Friend, not orc. Put your teeth away.
+(if: $metpeddler is false)[(set:$metpeddler to true)The road bends sharply around a hedge of bushes and you nearly walk straight into the flank of a mule. A two-wheeled cart stands tucked in the shade, piled with sacks, crates and a rolled-up market awning. A wiry old goblin perches on the shaft, and at the sight of you he throws up both hands - friend! Friend, not orc. Put your teeth away.
 
-He looks you over and eases back down. - You came out of the smoke. So did I, near enough. I kept a stall on the far end of town, the orchard end. When Gorms lot came howling in from the east I had my goods half-packed already, lucky for me, and the mule still in her traces. I slipped out the back of the rows while they were busy with the front, through the orchard, and never once looked behind me.
+He looks you over and eases down with a sigh. - I just came out of town, near enough. I was lucky I was already preparing to leave, so I could avoid them.
 
-His voice drops and the bravado goes out of it. - You did not see it up close, friend. They were over the palisade before the watch-horn even sounded. Splitter himself at the front of them, that great cleaver swinging. They are not raiding, they are erasing - every hovel, every pen, every soul too slow off the mark. Another breath and they would have had me too. He shudders, then waves a hand back toward the black plumes. - Whatever you think is waiting for you back there, it is ash now. Turn the cart with me. The road south is open and quiet. A goblin can grow old that way. Live a while longer, eh?
+His voice drops. - You did not see it up close, friend. They were inside the village kicking down doors and slaying villagers before the alarm even sounded. A big un at the front with a great cleaver and several other fearsome warriors.
+He shudders, then waves a hand back toward the black plumes. - Whatever you think is waiting for you back there, it is ash now. Turn around with me. The road south is open and quiet. A goblin can grow old that way.
 
-But south is not where your purpose lies. The little brass donkey-bell. Your friend in the cavern with his throat laid open and his amulet stolen off his neck. The cart you cannot even remember. There is one direction left for you, and one name waiting at the end of it - Gorm.
+But south is not where your purpose lies. The little brass donkey-bell. Your friend in the cavern with his throat laid open and his amulet stolen off his neck. The other goods you cannot even remember. 
+There is one direction left for you, and one name waiting at the end of it - Gorm.
 
-The peddler watches your face and the offer dies on his lips. He has seen that look before. He sighs and pats a crate. - So be it. No use weeping over a burned town, and no use arguing with a goblin who has already chosen. But you will not last the gate unarmed. At least do not walk in empty-handed.]
+The peddler watches your face and realizes the futility of arguing. He has seen that look before. - So be it. But you will not last the gate unarmed. At least do not walk in empty-handed.]
 (else:)[The peddler spreads his hands over the cart. - See anything else that suits you, friend?]
 
 You count $coins coins in your pouch.
 
 (if:$shortspear is false)[(if:$coins &gt;= 15)[(link:"A good orc shortspear - 15 coins")[(set:$shortspear to true)(set:$coins to $coins - 15)(goto:"A peddler on the road")]](else:)[A good orc shortspear hangs from the cart-rail, but at 15 coins it is well beyond your pouch.]
 ]
-(if:$dagger is false)[(if:$coins &gt;= 3)[(link:"A worn but serviceable dagger - 3 coins")[(set:$dagger to true)(set:$coins to $coins - 3)(goto:"A peddler on the road")]](else:)[A worn dagger lies on the blanket for 3 coins, but your pouch is empty.]
+(if:$dagger is false)[(if:$coins &gt;= 4)[(link:"A worn but serviceable dagger - 4 coins")[(set:$dagger to true)(set:$coins to $coins - 4)(goto:"A peddler on the road")]](else:)[A worn dagger lies on the blanket for 4 coins, but your pouch is empty.]
 ]
 (if:$coins &gt;= 5)[(link:"A strip of dried meat to fill the belly - 5 coins")[(set:$health to $health + 2)(set:$coins to $coins - 5)(goto:"A peddler on the road")]]
-(if:$waterbagfilled is false)[(if:$coins &gt;= 4)[(link:"Let him fill your waterbag from his barrel - 4 coins")[(set:$waterbagfilled to true)(set:$coins to $coins - 4)(goto:"A peddler on the road")]](else:)[He nods at the water barrel lashed to the cart, but a fill costs 4 coins you do not have.]
+(if:$waterbagfilled is false)[(if:$coins &gt;= 2)[(link:"Let him fill your waterbag from his barrel - 2 coins")[(set:$waterbagfilled to true)(set:$coins to $coins - 2)(goto:"A peddler on the road")]](else:)[He nods at the water barrel lashed to the cart, but a fill costs 2 coins you do not have.]
 ]
 
 [[Thank the peddler and walk on->Smokestacks approach]]</tw-passagedata><tw-passagedata pid="18" name="You eat a fish" tags="" position="1050,775" size="100,100">
@@ -525,17 +593,24 @@ The pulling goes on until your body has disappeared from the face of the earth f
 
     You stand up from behind the fencepost and walk down the road toward the gate as if you had every right to be there. The two gate-orcs look at you, look at each other, and burst out laughing.
 
-    You wait until the closer one bends double with mirth before you move.
+    You wait until the right moment to strike.
 
     (if:$rocks is true)[A throwing rock cracks across the laughing orcs temple and drops him in the mud.]
     (else-if:$shortspear is true)[You drive the shortspear up under his jaw before he straightens.]
     (else-if:$dagger is true)[The dagger slips between his ribs and he folds.]
-    (else:)[You leap up and bite into his throat with all your goblin might. He gurgles down in shock.]
+    (else:)[You leap up and bite into his throat with all your goblin might. He gurgles in shock.]
 
     The second orc roars and swings a club at you. It catches you across the side and the world flashes white.
 
-    You roll, scramble, and bury your weapon or your teeth in his thigh. He staggers. You finish him on the ground.
-
+    (if:$rocks is true)[You throw a rock but it bounces pathetically off his armored chest only enraging him. He roars and flails his weapon wildy and proceeds to move closer. 
+    You look around, see an opened doorway of a ruined house not yet on fire. You run inside with the orc a few steps behind. Before the orc enters, you already exited the house through another window opening.
+    The orc runs into the house with confusion, you sneak close to the wall outside and circle back to the doorway, and knock him out cold with a hard thud from behind his skull]
+    (else-if:$shortspear is true)[You roll away dexterously and stand up again and provoke him. Tiny orc chicken, chicken, chicken. 
+    The orc stomps the ground with his feet, his face contorted with rage, and runs towards you like a wild bull, you hedge the shortspear into the ground, and the dumb orc impales himself through his stomach, gurgles and falls over.]
+    (else-if:$dagger is true)[You quickly climb up a fallen beam to gain some elevation, but you are not out of reach from the orc. 
+    The orc approaches with a running stride, wild with fury, you frogleap out of reach of his flailing weapon, and plunge the dagger through the top of his skull as you fall down on him]
+    (else:)[You roll, scramble, and bury your teeth in his thigh. He staggers. You land on top of him in the chaos and wild with tenacity you rip his face with repeated swipes of your goblin claws, and proceed to strangle him on the ground.]
+    
     Two down. You are bleeding and the camp has heard the noise. Gorm steps out of his tent with the cleaver in his hand and a grin on his face.
 
     (if:$health &lt;= 0)[(set:$comeback to "Open duel with Gorm")[[Deaths door]]]
@@ -576,10 +651,10 @@ The pulling goes on until your body has disappeared from the face of the earth f
     style=&#39;width:100%; height: 100%;&#39;
     /&gt;
     
-    You skirt the ring of the palisade and approach the village from the smoke-side, where flames still lick the thatch of three hovels and the heat shimmers the air.
+    You skirt the ring of the palisade and approach the village from the smoke-side, where flames still lick the roofs of three hovels and the heat shimmers the air.
 
-    (if:$waterbagfilled is true)[(set:$waterbagfilled to false)You unhook the waterbag and pour it over your jerkin and the rag you tie around your face. Soaked through, the cloth keeps the worst of the smoke and ember from your goblin lungs. You slip between the burning walls without coughing.]
-    (else:)[(set: $health to $health - 2)You have nothing to ward off the smoke. You hold your breath and run. Embers sting your skin and a beam falls behind you, and by the time you stumble through to the other side your throat is raw and your eyes stream tears.]
+    (if:$waterbagfilled is true)[(set:$waterbagfilled to false)You unhook the waterbag and pour it over a rag and tie around your face. Soaked through, the cloth keeps the worst of the smoke from your goblin lungs. You slip between the burning walls without coughing.]
+    (else:)[(set: $health to $health - 2)You have no water to ward off the smoke with a wet rag. You hold your breath and run. Embers fall and sting and a beam falls behind you, and by the time you stumble through to the other side your throat is raw and your eyes stream tears.]
 
     Through gaps in the smoke you see the chieftains loot pile - sacks of grain, a small cart of tools, the donkey-bell glinting on top. Gorm himself walks past it, distracted, counting plunder with one of his lieutenants.
 
