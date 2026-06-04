@@ -209,6 +209,34 @@ Scene: quiet mossy glade, shafts of warm sunlight cutting through canopy onto pa
 
 ---
 
+## pid35 — A lone orc
+
+Filename: `gobbo_orc.png`
+
+```
+Digital painting, painterly fantasy illustration matching the style of gobbo_forest.png reference. Dark earthy palette with strong accent lighting. Vertical 9:16 composition. Protagonist Merrick: small wiry green-skinned goblin with oversized eyes, sharp prominent jaw, ragged leather and burlap. Grotesque but expressive, dark-comedy tone. No text in image.
+
+Scene: Merrick crouched at the lip of a leaf-choked forest hollow in the foreground, peering down with greedy, calculating eyes. Below him a lone orc - a straggler from the warband, bulkier and brutish - kneels with his back half-turned, rooting through a dead villager's torn pack and stuffing roots and stolen trinkets into a sack. The orc's shortspear leans against a mossy tree stump, well out of his reach. He has not noticed the goblin. Dappled light through thinning trees, a faint dark smoke plume rising beyond the treeline. Mood: predatory opportunism, the held breath before an ambush.
+```
+
+- [x] done
+
+---
+
+## pid36 — Fight the lone orc (ambush)
+
+Filename: `gobbo_orcfight.png`
+
+```
+Digital painting, painterly fantasy illustration matching the style of gobbo_forest.png reference. Dark earthy palette with strong accent lighting. Vertical 9:16 composition. Protagonist Merrick: small wiry green-skinned goblin with oversized eyes, sharp prominent jaw, ragged leather and burlap. Grotesque but expressive, dark-comedy tone. No text in image.
+
+Scene: Merrick caught mid-leap, springing down into the hollow onto the lone orc before the brute can reach the shortspear leaning on the stump. The orc twisting in shock, off-balance, his sack dropping and roots and trinkets spilling across the leaf-litter, one hand flung out toward the out-of-reach spear. Goblin claws and teeth bared, all desperate momentum. Dappled forest light, churned leaves. Mood: explosive do-or-die ambush.
+```
+
+- [x] done
+
+---
+
 # Chapter 3 — Lake and Harbor
 
 ## pid18 — You eat a fish
@@ -280,6 +308,20 @@ Scene: Merrick stumbling on a road tilted sideways under his feet, world askew. 
 ```
 
 - [ ] done
+
+---
+
+## pid34 — A peddler on the road (HIGH)
+
+Filename: `gobbo_peddler.png`
+
+```
+Digital painting, painterly fantasy illustration matching the style of gobbo_forest.png reference. Dark earthy palette with strong accent lighting. Vertical 9:16 composition. Protagonist Merrick: small wiry green-skinned goblin with oversized eyes, sharp prominent jaw, ragged leather and burlap. Grotesque but expressive, dark-comedy tone. No text in image.
+
+Scene: a two-wheeled mulecart tucked in the shade of a hawthorn hedge beside the road, piled high with sacks, crates and a rolled-up market awning, a water barrel lashed to the side, a shortspear propped on the cart-rail and a worn dagger laid out on a blanket. A wiry old goblin peddler perches on the cart shaft, throwing both hands up in a wary friend-not-foe greeting, his mule still in its traces. Merrick approaching from the roadside. A distant black smoke plume rises over a far ridge behind them - the burned town he fled. Dappled roadside light. Mood: gallows-humor commerce at the edge of ruin.
+```
+
+- [x] done
 
 ---
 
