@@ -307,7 +307,7 @@
 .dom-debug-mode tw-story, .dom-debug-mode tw-passage, .dom-debug-mode tw-sidebar, .dom-debug-mode tw-include, .dom-debug-mode tw-hook, .dom-debug-mode tw-expression, .dom-debug-mode tw-link, .dom-debug-mode tw-dialog, .dom-debug-mode tw-columns, .dom-debug-mode tw-column, .dom-debug-mode tw-align {
     outline: 1px solid #f5a3da;
     min-height: 32px;
-    display: block !important
+    display: block !important;
 }
 
     .dom-debug-mode tw-story::before, .dom-debug-mode tw-passage::before, .dom-debug-mode tw-sidebar::before, .dom-debug-mode tw-include::before, .dom-debug-mode tw-hook::before, .dom-debug-mode tw-expression::before, .dom-debug-mode tw-link::before, .dom-debug-mode tw-dialog::before, .dom-debug-mode tw-columns::before, .dom-debug-mode tw-column::before, .dom-debug-mode tw-align::before {

@@ -95,6 +95,7 @@
 
             Death has given you no respite, and you have fallen.
             Despite your many shortcomings in this life, your afterlife awaits you
+            [[Restart game->Cavern]]
         </tw-passagedata><tw-passagedata pid="5" name="Outside cavern" tags="" position="500,450" size="100,100">
             (if: $shortspear is true)[&lt;img src=&#39;images/gobbo_outside_spear.jpg&#39;
             style=&#39;width:100%; height: 100%;&#39;
@@ -645,10 +646,12 @@
             (else-if:$shortspear is true)[You roll away dexterously and stand up again and provoke him. Tiny orc chicken, chicken, chicken.
             The orc stomps the ground with his feet, his face contorted with rage, and runs towards you like a wild bull, you hedge the shortspear into the ground, and the dumb orc impales himself through his stomach, gurgles and falls over.]
             (else-if:$dagger is true)[You quickly climb up a fallen beam to gain some elevation, but you are not out of reach from the orc.
-            The orc approaches with a running stride, wild with fury, you frogleap out of reach of his flailing weapon, and plunge the dagger through the top of his skull as you fall down on him]
+            The orc approaches with a running stride, wild with fury, you frogleap out of reach of his flailing weapon, and plunge the dagger through the side of his skull as you fall down, and his brainless body stumbles with his forward momentum and falls dead in the mud]
             (else:)[You roll, scramble, and bury your teeth in his thigh. He staggers. You land on top of him in the chaos and wild with tenacity you rip his face with repeated swipes of your goblin claws, and proceed to strangle him on the ground.]
 
             Two down. You are bleeding and the camp has heard the noise. Gorm steps out of his tent with the cleaver in his hand and a grin on his face.
+
+            (if: $health &lt;= 0)[The wounds from the fight finally overwhelm you. The club's blow to your head leaves the road tilting; dizziness rolls over you, and your knees buckle. Gorm's grin and the camp's cries blur into darkness as weakness takes hold.]
 
             (if:$health &lt;= 0)[(set:$comeback to "Open duel with Gorm")[[Deaths door]]]
             (else:)[[Open duel with Gorm]]

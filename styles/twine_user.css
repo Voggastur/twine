@@ -3,8 +3,7 @@ tw-hook[name="inventoryhud"] {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: .6rem;
-    margin: .75rem auto;
+    margin: .5rem auto;
 }
 
 tw-hook[name="inventorystats"] {
@@ -43,8 +42,8 @@ tw-hook[name="coinsicon"] {
 
 tw-hook[name="backpackpanel"] {
     box-sizing: border-box;
-    width: min(100%, 52rem);
-    padding: .65rem;
+    width: 100%;
+    padding: 0 3rem;
     border: 1px solid #8a7047;
     border-radius: .5rem;
     background: #171512;
@@ -54,7 +53,7 @@ tw-hook[name="backpacktitle"] {
     display: block;
     margin-bottom: .6rem;
     color: #f0d291;
-    font-size: 1.2rem;
+    font-size: 2rem;
     font-weight: bold;
     text-align: center;
 }
@@ -66,6 +65,14 @@ tw-hook[name="inventorygrid"] {
 }
 
 tw-hook[name="inventorygrid"] > br {
+    display: none;
+}
+
+tw-story > tw-passage > tw-include[name="Header"] + br {
+    display: none;
+}
+
+tw-story > tw-passage > tw-include[name="Header"] - br {
     display: none;
 }
 
