@@ -1,3 +1,20 @@
+﻿tw-passage img {
+    width: 50%;
+    height: 50%;
+    float: left;
+    margin: 0 1rem 0 0;
+    border: 1px solid #8a7047;
+    border-radius: .5rem;
+}
+
+@media(max-width: 1601px) {
+    tw-passage img {
+        width: 100%;
+        height: 100%;
+        float: none;
+        margin: 0;
+    }
+}
 
 tw-hook[name="inventoryhud"] {
     display: flex;
@@ -12,6 +29,7 @@ tw-hook[name="inventorystats"] {
     gap: 1.25rem;
     font-size: 3rem;
     font-weight: bold;
+    margin: 1rem;
 }
 
 tw-hook[name="healthstat"],
@@ -43,7 +61,8 @@ tw-hook[name="coinsicon"] {
 tw-hook[name="backpackpanel"] {
     box-sizing: border-box;
     width: 100%;
-    padding: 0 3rem;
+    padding: 1rem 2rem 2rem;
+    margin: 1rem 0;
     border: 1px solid #8a7047;
     border-radius: .5rem;
     background: #171512;
@@ -51,7 +70,7 @@ tw-hook[name="backpackpanel"] {
 
 tw-hook[name="backpacktitle"] {
     display: block;
-    margin-bottom: .6rem;
+    margin-bottom: 1rem;
     color: #f0d291;
     font-size: 2rem;
     font-weight: bold;
@@ -68,18 +87,9 @@ tw-hook[name="inventorygrid"] > br {
     display: none;
 }
 
-tw-story > tw-passage > tw-include[name="Header"] + br {
-    display: none;
-}
-
-tw-story > tw-passage > tw-include[name="Header"] - br {
-    display: none;
-}
-
 tw-hook[name="inventoryslot"] {
     box-sizing: border-box;
     display: flex;
-    min-height: 4.5rem;
     aspect-ratio: 1 / 1;
     flex-direction: column;
     align-items: center;
@@ -100,9 +110,59 @@ tw-hook[name="waterbagicon"],
 tw-hook[name="rocksicon"] {
     position: relative;
     display: inline-block;
-    font-size: 1.55rem;
+    font-size: 1rem;
     line-height: 1.2;
     cursor: help;
+}
+
+@media(min-width: 1601px) {
+    tw-hook[name="daggericon"],
+    tw-hook[name="shortspearicon"],
+    tw-hook[name="baguetteicon"],
+    tw-hook[name="waterbagicon"],
+    tw-hook[name="rocksicon"] {
+        font-size: 3.5rem
+    }
+}
+
+@media(max-width: 1600px) {
+    tw-hook[name="daggericon"],
+    tw-hook[name="shortspearicon"],
+    tw-hook[name="baguetteicon"],
+    tw-hook[name="waterbagicon"],
+    tw-hook[name="rocksicon"] {
+        font-size: 2.5rem
+    }
+}
+
+@media(max-width: 1200px) {
+    tw-hook[name="daggericon"],
+    tw-hook[name="shortspearicon"],
+    tw-hook[name="baguetteicon"],
+    tw-hook[name="waterbagicon"],
+    tw-hook[name="rocksicon"] {
+        font-size: 2rem
+    }
+}
+
+@media(max-width: 900px) {
+    tw-hook[name="daggericon"],
+    tw-hook[name="shortspearicon"],
+    tw-hook[name="baguetteicon"],
+    tw-hook[name="waterbagicon"],
+    tw-hook[name="rocksicon"] {
+        font-size: 1.4rem
+    }
+}
+
+@media(max-width: 600px) {
+    tw-hook[name="daggericon"],
+    tw-hook[name="shortspearicon"],
+    tw-hook[name="baguetteicon"],
+    tw-hook[name="waterbagicon"],
+    tw-hook[name="rocksicon"] {
+        font-size: 1rem
+    }
 }
 
 tw-hook[name="daggericon"]::after,
@@ -160,6 +220,18 @@ tw-hook[name="rocksicon"]:hover::after {
 
 tw-hook[name="inventoryempty"] {
     color: #8d7942;
-    font-size: 1.2rem;
+    font-size: 2rem;
     opacity: .55;
+}
+
+body > tw-story > tw-passage br {
+    display: none;
+}
+
+tw-expression[name="link-goto"] {
+    display: block;
+}
+
+tw-link[tabindex="0"][data-raw] {
+    display: block;
 }

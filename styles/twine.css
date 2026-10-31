@@ -1365,7 +1365,7 @@ tw-story {
     min-height: 100%;
     font-size: 1.5em;
     line-height: 1.5em;
-    padding: 5% 5%;
+    padding: 2% 10%;
     overflow: hidden;
     background-color: #000;
     color: #fff
@@ -1375,9 +1375,9 @@ tw-story {
         box-sizing: border-box
     }
 
-@media(min-width: 576px) {
+@media(min-width: 1600px) {
     tw-story {
-        padding: 5% 20%
+        padding: 2% 5%;
     }
 }
 
@@ -1438,7 +1438,7 @@ tw-sidebar {
 
 @media(min-width: 576px) {
     tw-sidebar {
-        left: -5em;
+        left: -4em;
         width: 3em;
         position: absolute;
         -ms-flex-direction: column;
